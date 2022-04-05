@@ -22,18 +22,8 @@ def delimiter(string):
 
     return data
 
-def load_data(data, rawData):
-    # I.S: Data mentah tersedia, list data terdefinisi secara sembarang
-    # F.S: Data mentah dibaca dan dimasukkan ke dalam list
-
-    # ALGORITMA
-    for row in rawData:
-        data += [delimiter(row)]
-
-    return
-
 def dir_path(string):
-    # SPESIFIKASI: Validasi apakah argumen yang diberikan saat menjalankan program sesuai atau tidak
+    # Validasi apakah argumen yang diberikan saat menjalankan program sesuai atau tidak
 
     # ALGORITMA
     if os.path.isdir(string):   # Jika argumen sesuai dengan path yang ada, maka program akan lanjut
@@ -43,26 +33,23 @@ def dir_path(string):
         print("Tidak ada nama folder yang diberikan!")
         sys.exit("Usage: python program_binomo.py <nama_folder>")
     else:                       # Jika argumen (nama folder) tidak ditemukan
-        sys.exit('Folder "{}" tidak ditemukan.'.format(string))
+        sys.exit("Folder ”{}” tidak ditemukan.".format(string))
 
-def open_file():
-    # I.S: Data mentah tersedia
-    # F.S: Data mentah diubah menjadi data yang dapat diolah (dalam bentuk list)
+def open_file(filename):
+    # I.S. Data mentah tersedia
+    # F.S. Data mentah diubah menjadi data yang dapat diolah (dalam bentuk list)
 
     # ALGORITMA
-    user = []; game = []; riwayat = []; kepemilikan = []
-    
+    data = []
+
     # Open file user.csv, game.csv, riwayat.csv, dan kepemilikan.csv
-    f_user = open(folder + "/user.csv", 'r')
-    f_game = open(folder + "/game.csv", 'r')
-    f_riwayat = open(folder + "/riwayat.csv", 'r')
-    f_kepemilikan = open(folder + "/kepemilikan.csv", 'r')
+    raw = open(folder + "/" + filename, 'r')
 
     # Membaca data mentah dan memasukkan ke dalam list
-    load_data(user, f_user)
-    load_data(game, f_game)
-    load_data(riwayat, f_riwayat)
-    load_data(kepemilikan, f_kepemilikan)
+    for row in raw:
+        data += [delimiter(row)]
+
+    return data
 
 # Parser untuk membaca argumen sehingga bisa membaca argumen sebagai folder yang akan dibaca
 parser = argparse.ArgumentParser()
@@ -70,4 +57,8 @@ parser.add_argument("folder", nargs="?", type=dir_path, help='Input folder name'
 args = parser.parse_args()
 folder = "./" + args.folder         # Direktori folder
 
-open_file()
+# Menyimpan isi file eksternal ke dalam variabel (berupa array)
+user = open_file("user.csv")
+game = open_file("game.csv")
+riwayat = open_file("riwayat.csv")
+kepemilikan = open_file("kepemilikan.csv")
