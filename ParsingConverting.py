@@ -3,15 +3,34 @@
 # NIM   : 16521313
 # Tanggal : 6 April 2022
 
-# Parsing dan mengubah format data CSV ke Array
-# Parsing Data CSV to Array
-def Parsing(data) :
+# Program Parsing Data
+# Input     : File CSV
+# Output    : Mengakses file CSV dan mengubah data format CSV menjadi Array untuk dapat diolah
+
+# ALGORITMA FUNGSI/PROSEDUR
+# Ambil Data CSV to Array
+def TakeDataFrom(data) :
+# Menghasilkan data yang diambil dari file 
+
+# KAMUS LOKAL
+#   importCSV, data :
+
+# ALGORITMA FUNGSI/PROSEDUR
     importCSV = open(data, "r")
     data = importCSV.read()
     return data
 
 # Mengubah Format data CSV menjadi Array
 def convertCSVtoArr(DataCSV) :
+# Menghasilkan tuple yang terdiri dari jumlah baris, jumlah kolom, dan
+# data dalam bentuk Array untuk diproses selanjutnya
+
+# KAMUS LOKAL
+#   baris, kolom, i : Integer
+#   arrData : Array of String
+#   row. column : Integer
+
+# ALGORITMA FUNGSI/PROSEDUR
     # Menemukan banyak baris dan kolom array
     baris = 0
     kolom = 0

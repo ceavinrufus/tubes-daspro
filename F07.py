@@ -3,14 +3,28 @@
 # NIM   : 16521313
 # Tanggal : 6 April 2022
 
-# F07-Listing Harga Berdasarkan ID, Tahun Rilis, Harga  
-from ParsingConverting import convertCSVtoArr, Parsing
+# F07-Listing Game di Toko Berdasarkan ID, Tahun Rilis, Harga  
 
-# PROGRAM UTAMA
+# Program Sorting Game
+# Input     : Menerima Pilihan Skema Sorting berdasarkan ID secara ascending,
+#             Tahun Rilis (tahun- untuk descending dan tahun+ untuk ascending), dan
+#             Harga (harga- untuk descending dan harga+ untuk ascending)
+# Output    : Menampilkan data game yang tersedia di toko terurut sesuai masukan skema sorting
+
+# KAMUS
+# Deklarasi Variabel
+#   data :
+#   baris, kolom, Pass, Idx, i, j    : Integer
+#   arrDataGame, Temp : Array of String
+#   sortby : String
+
+# ALGORITMA PROGRAM UTAMA
+from ParsingConverting import convertCSVtoArr, TakeDataFrom
+
 data = "D:\.data\[] DATA HUSNIA\[1] KAMPUS\SEMESTER 2\DASAR PEMROGRAMAN\[] TUGAS BESAR\DATA\game.csv"
-baris = convertCSVtoArr(Parsing(data))[0]
-kolom = convertCSVtoArr(Parsing(data))[1]
-arrDataGame = convertCSVtoArr(Parsing(data))[2]
+baris = convertCSVtoArr(TakeDataFrom(data))[0]
+kolom = convertCSVtoArr(TakeDataFrom(data))[1]
+arrDataGame = convertCSVtoArr(TakeDataFrom(data))[2]
 
 # LISTING GAME
 print("Skema sorting :", end=' ')

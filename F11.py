@@ -1,27 +1,25 @@
 # IDENTITAS
 # Nama  : Husnia Munzayana
 # NIM   : 16521313
-# Tanggal : 6 April 2022
+# Tanggal : 7 April 2022
 
-# F10-Mencari Game yang Dimiliki dari ID dan Tahun Rilis
+# F11-Mencari Game di Toko dari ID, Nama Game, Harga, Kategori, dan Tahun Rilis
 
-# Program Searching User Game
-# Input     : ID User dan Keyword Pencarian
-# Output    : Menampilkan data game yang dimiliki oleh User sesuai keyword,
+# Program Searching Game di Toko
+# Input     : Keyword Pencarian
+# Output    : Menampilkan data game pada toko sesuai kategori,
 #             Jika tidak ada, tampilkan pesan
 
 # KAMUS
 # Deklarasi Variabel
-#   data_game, data_milik :
+#   data_game :
 #   baris_game, kolom_game : Integer
-#   baris_milik, kolom_milik : Integer
 #   i, j, k, list : Integer
-#   arrGame, arrMilik, UserGame, searchBy : Array of String
-#   User, idGame, tahun, by : String
+#   arrGame, searchBy, outputArr : Array of String
+#   User, idGame, nama, harga, kategori, tahun, by : String
 #   foundVal : boolean
 
 # ALGORITMA PROGRAM UTAMA
-from ListGameUser import ListGameMilikUser
 from ParsingConverting import convertCSVtoArr, TakeDataFrom
 from SearchBy import searchData
 
@@ -31,43 +29,49 @@ baris_game = convertCSVtoArr(TakeDataFrom(data_game))[0]
 kolom_game = convertCSVtoArr(TakeDataFrom(data_game))[1]
 arrGame = convertCSVtoArr(TakeDataFrom(data_game))[2]
 
-# Parsing Data Kepemilikan CSV to Array
-data_milik="D:\.data\[] DATA HUSNIA\[1] KAMPUS\SEMESTER 2\DASAR PEMROGRAMAN\[] TUGAS BESAR\DATA\kepemilikan.csv"
-baris_milik = convertCSVtoArr(TakeDataFrom(data_milik))[0]
-kolom_milik = convertCSVtoArr(TakeDataFrom(data_milik))[1]
-arrMilik = convertCSVtoArr(TakeDataFrom(data_milik))[2]
-
-# List Data Game yang dimiliki
-User = "US003"
-UserGame = ListGameMilikUser(User)[0]
-
 # Input informasi yang dibutuhkan
-searchBy = ["" for i in range(2)]
+searchBy = ["" for i in range(5)]
 print("Masukkan ID Game: ", end='')
 idGame = input()
 searchBy[0] = idGame
-print("Masukkan Tahun Rilis Game: ", end='')
+print("Masukkan Nama Game:", end='')
+nama = input()
+searchBy[1] = nama
+print("Masukkan Harga Game:", end='')
+harga = input()
+searchBy[2] = harga
+print("Masukkan Kategori Game:", end='')
+kategori = input()
+searchBy[3] = kategori
+print("Masukkan Tahun Rilis Game:", end='')
 tahun = input()
-searchBy[1] = tahun
+searchBy[4] = tahun
 
 # Searching
-print("Daftar game pada inventory yang memenuhi kriteria:")
-i = 0
+print("Daftar game pada toko yang memenuhi kriteria:")
+outputArr = ["" for i in range(baris_game-1)]
+for i in range (1, baris_game) :
+    outputArr[i-1] = arrGame[i][0]
+
 foundVal = True
-while i < 2 and foundVal:
+i = 0
+while i < 5 and foundVal :
     if searchBy[i] == "" :
         i += 1
     else :
-        if i == 0 : by = "idGame"
+        if i == 0 : by = "idGame" 
+        elif i == 1 : by = "nama"
+        elif i == 2 : by = "harga"
+        elif i == 3 : by = "kategori"
         else : by = "tahun"
-        foundVal = searchData(UserGame, by , searchBy[i])[1]
-        UserGame = searchData(UserGame, by, searchBy[i])[0]
+        foundVal = searchData(outputArr, by , searchBy[i])[1]
+        outputArr = searchData(outputArr, by, searchBy[i])[0]
         i += 1
-
+        
 # output
 if foundVal :
     list = 1
-    for i in UserGame :
+    for i in outputArr :
         for j in range (1,baris_game) :
             if i == arrGame[j][0] :
                 print(str(list) + ("."), end=' ')
