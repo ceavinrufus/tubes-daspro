@@ -1,6 +1,6 @@
 # IDENTITAS
-# Nama  : Husnia Munzayana
-# NIM   : 16521313
+# Nama  : 
+# NIM   : 
 # Tanggal : 6 April 2022
 
 # F09-Melihat Game yang dimiliki
