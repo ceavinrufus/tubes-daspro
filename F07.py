@@ -1,6 +1,6 @@
 # IDENTITAS
-# Nama  : Husnia Munzayana
-# NIM   : 16521313
+# Nama  :
+# NIM   : 
 # Tanggal : 6 April 2022
 
 # F07-Listing Game di Toko Berdasarkan ID, Tahun Rilis, Harga  
