@@ -1,6 +1,6 @@
 # IDENTITAS
-# Nama  : Husnia Munzayana
-# NIM   : 16521313
+# Nama  : 
+# NIM   : 
 # Tanggal : 7 April 2022
 
 # F11-Mencari Game di Toko dari ID, Nama Game, Harga, Kategori, dan Tahun Rilis
@@ -24,7 +24,7 @@ from ParsingConverting import convertCSVtoArr, TakeDataFrom
 from SearchBy import searchData
 
 # Parsing Data Game CSV to Array
-data_game="D:\.data\[] DATA HUSNIA\[1] KAMPUS\SEMESTER 2\DASAR PEMROGRAMAN\[] TUGAS BESAR\DATA\game.csv"
+data_game="game.csv"
 baris_game = convertCSVtoArr(TakeDataFrom(data_game))[0]
 kolom_game = convertCSVtoArr(TakeDataFrom(data_game))[1]
 arrGame = convertCSVtoArr(TakeDataFrom(data_game))[2]
