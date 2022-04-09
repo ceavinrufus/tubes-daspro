@@ -21,7 +21,7 @@
 # ALGORITMA PROGRAM UTAMA
 from ParsingConverting import convertCSVtoArr, TakeDataFrom
 
-data = "D:\.data\[] DATA HUSNIA\[1] KAMPUS\SEMESTER 2\DASAR PEMROGRAMAN\[] TUGAS BESAR\DATA\game.csv"
+data = "game.csv"
 baris = convertCSVtoArr(TakeDataFrom(data))[0]
 kolom = convertCSVtoArr(TakeDataFrom(data))[1]
 arrDataGame = convertCSVtoArr(TakeDataFrom(data))[2]
