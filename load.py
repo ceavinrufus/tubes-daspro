@@ -1,5 +1,5 @@
-import argparse, os, sys
-from bnmo_function import *
+import os, sys
+from arraytools import *
 
 def dir_path(folder):
     # Validasi apakah argumen yang diberikan saat menjalankan program sesuai atau tidak
@@ -11,15 +11,16 @@ def dir_path(folder):
     path = os.path.join("./savedata", folder)       # Direktori folder
 
     if os.path.isdir(path):   # Jika argumen sesuai dengan path yang ada, maka program akan lanjut
-        print("Loading...")
-        return path
-    elif path == " ":         # Jika argumen (nama folder) tidak diberikan saat menjalankan program
-        print("Tidak ada nama folder yang diberikan!")
-        sys.exit("Usage: python program_binomo.py <nama_folder>")
+        if folder == ' ':  # Jika argumen (nama folder) tidak diberikan saat menjalankan program
+            print("Tidak ada nama folder yang diberikan!")
+            sys.exit("Usage: python program_binomo.py <nama_folder>")
+        else:
+            print("Loading...")
+            return path
     else:                       # Jika argumen (nama folder) tidak ditemukan
-        sys.exit("Folder ”{}” tidak ditemukan.".format(path))
+        sys.exit("Folder ”{}” tidak ditemukan.".format(folder))
 
-def open_file(filename):
+def open_file(foldername, filename):
     # Fungsi yang memasukan data dari file ke data yang dapat diolah (dalam bentuk list)
 
     # KAMUS LOKAL
@@ -29,7 +30,7 @@ def open_file(filename):
     # ALGORITMA
     data = []
 
-    directory = os.path.join(args.folder, filename)   # Direktori file yang ingin dibuka
+    directory = os.path.join(foldername, filename)   # Direktori file yang ingin dibuka
     f = open(directory, 'r')                                # Membuka file yang ingin dibuka
 
     # Membaca data mentah dan memasukkan ke dalam list
@@ -39,13 +40,4 @@ def open_file(filename):
     return data
 
 if __name__ == "__main__":
-    # Parser untuk membaca argumen sehingga bisa membaca argumen sebagai folder yang akan dibaca
-    parser = argparse.ArgumentParser()
-    parser.add_argument("folder", nargs="?", type=dir_path, help='Input folder name', default=' ')
-    args = parser.parse_args()
-
-    # Menyimpan isi file eksternal ke dalam variabel (berupa array)
-    user = open_file("user.csv")
-    game = open_file("game.csv")
-    riwayat = open_file("riwayat.csv")
-    kepemilikan = open_file("kepemilikan.csv")
+    exec(open("main.py").read())

@@ -1,3 +1,5 @@
+from arraytools import *
+
 allowed = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
@@ -39,51 +41,3 @@ def isuname_ada(username, datasource):
         ada = datasource[i][1].upper() == username.upper()
 
     return ada, i
-
-def panjang(arr):
-    # Fungsi yang menerima sebuah array dan menghitung panjang array tersebut
-
-    # KAMUS LOKAL
-    # pjg : integer
-
-    # ALGORITMA
-    pjg = 0
-
-    for i in arr:       # Setiap membaca ada sebuah elemen dalam array, nilai pjg bertambah 1
-        pjg += 1
-
-    return pjg
-
-
-def splitting(string, delimiter=";"):
-    # Memisahkan delimiter dari string.
-    # Syaratnya elemen setelah delimiter terakhir harus integer
-
-    # KAMUS LOKAL:
-    # temp : string
-    # data : array
-
-    # ALGORITMA
-    temp = ""           # Variabel sementara untuk menampung anggota list
-    data = []           # List untuk menampung data
-
-    for char in string:     # Looping setiap huruf yang ada pada string
-        if char != delimiter:
-            temp += char    # Menambahkan huruf ke dalam variabel sementara
-        elif char == delimiter:
-            data += [temp]  # Menambahkan variabel sementara ke dalam list data
-            temp = ""       # Mengosongkan variabel sementara
-    if temp:
-        data += [int(temp)] # Menambahkan sisa string ke dalam list data dalam bentuk integer
-
-    return data
-
-
-def joining(arr, delimiter=";"):
-    string = str(arr[0])
-
-    for i in range(1, panjang(arr)):
-        string += delimiter
-        string += str(arr[i])
-
-    return string

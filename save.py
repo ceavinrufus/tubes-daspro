@@ -1,8 +1,9 @@
 import os
-from bnmo_function import *
+from unamecheck import *
 
-def save_file(data, filename):
-    # Fungsi yang menulis data dari array ke dalam file csv
+def save_file(data, filename, savedir):
+    # I.S. data dan savedir (direktori tempat menyimpan) terdefinisi
+    # F.S. data tersimpan ke dalam file csv
 
     # KAMUS LOKAL
     # path : string
@@ -21,12 +22,26 @@ def save_file(data, filename):
     if not ada:
         os.mkdir(path)  # Membuat folder yang diinput pengguna jika belum ada foldernya
 
-    directory = os.path.join(path, filename)
+    directory = os.path.join(path, filename)        # Direktori tempat menyimpan file
     f = open(directory, "w")
 
-    for row in data:
+    for row in data:                        # Menuliskan tiap baris pada array ke dalam file
         f.writelines(joining(row) + "\n")
 
-savedir = input("Masukkan nama folder penyimpanan: ")
 
-print("Saving...")
+def save_all(user, game, riwayat, kepemilikan):
+    # I.S. array user, game, riwayat, dan kepemilikan terdefinisi
+    # F.S. array user, game, riwayat, dan kepemilikan disimpan ke dalam file
+
+    # KAMUS LOKAL
+    # savedir : string
+
+    # ALGORITMA
+    savedir = input("Masukkan nama folder penyimpanan: ")
+
+    save_file(user, "user.csv", savedir)
+    save_file(game, "game.csv", savedir)
+    save_file(riwayat, "riwayat.csv", savedir)
+    save_file(kepemilikan, "kepemilikan.csv", savedir)
+
+    print("Saving...")
