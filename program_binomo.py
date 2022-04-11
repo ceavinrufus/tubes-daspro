@@ -4,6 +4,7 @@ from register import register
 from login import login
 from exit import exit
 from ubah_stok import ubah_stok
+from help import *
 
 # KAMUS
 # idx : integer
@@ -42,7 +43,7 @@ while True:
                     elif choose == "search_game_at_store":
                         pass
                     elif choose == "help":
-                        pass
+                        help_admin()
                     elif choose == "save":
                         save(user, game, riwayat, kepemilikan)
                     elif choose == "exit":
@@ -63,7 +64,7 @@ while True:
                     elif choose == "search_game_at_store":
                         pass
                     elif choose == "help":
-                        pass
+                        help_user()
                     elif choose == "save":
                         save(user, game, riwayat, kepemilikan)
                     elif choose == "exit":
