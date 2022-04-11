@@ -1,6 +1,7 @@
 import os
 from unamecheck import *
 
+
 def save_file(data, filename, savedir):
     # I.S. data dan savedir (direktori tempat menyimpan) terdefinisi
     # F.S. data tersimpan ke dalam file csv
@@ -14,22 +15,22 @@ def save_file(data, filename, savedir):
     ada = False
 
     # Mengecek apakah folder save yang dipilih user sudah ada
-    for dir, subdir, files in os.walk("./savedata"):
-        if savedir in subdir:
+    for dirs, subdirs, files in os.walk("./savedata"):
+        if savedir in subdirs:
             ada = True
             break
 
     if not ada:
         os.mkdir(path)  # Membuat folder yang diinput pengguna jika belum ada foldernya
 
-    directory = os.path.join(path, filename)        # Direktori tempat menyimpan file
+    directory = os.path.join(path, filename)  # Direktori tempat menyimpan file
     f = open(directory, "w")
 
-    for row in data:                        # Menuliskan tiap baris pada array ke dalam file
+    for row in data:  # Menuliskan tiap baris pada array ke dalam file
         f.writelines(joining(row) + "\n")
 
 
-def save_all(user, game, riwayat, kepemilikan):
+def save(user, game, riwayat, kepemilikan):
     # I.S. array user, game, riwayat, dan kepemilikan terdefinisi
     # F.S. array user, game, riwayat, dan kepemilikan disimpan ke dalam file
 

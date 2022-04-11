@@ -17,5 +17,5 @@ def exit(user, game, riwayat, kepemilikan):
             print("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)", end=" ")
         else:
             if ans.upper() == "Y":
-                save_all(user, game, riwayat, kepemilikan)
+                save(user, game, riwayat, kepemilikan)
             sys.exit()
