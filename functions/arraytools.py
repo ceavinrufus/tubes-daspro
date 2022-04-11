@@ -12,6 +12,7 @@ def panjang(arr):
 
     return pjg
 
+
 def splitting(string, delimiter=";"):
     # Memisahkan delimiter dari string.
     # Syaratnya elemen setelah delimiter terakhir harus integer
@@ -34,9 +35,10 @@ def splitting(string, delimiter=";"):
         else:
             temp += char    # Menambahkan huruf ke dalam variabel sementara
     if temp:
-        data += [temp] # Menambahkan sisa string ke dalam list data dalam bentuk integer
+        data += [temp]      # Menambahkan sisa string ke dalam list data dalam bentuk integer
 
     return data
+
 
 def joining(arr, delimiter=";"):
     # Menggabungkan anggota dalam list menjadi sebuah string dengan delimiter tertentu
@@ -51,17 +53,3 @@ def joining(arr, delimiter=";"):
         string += str(arr[i])
 
     return string
-
-def extract_integer(string):
-    # Menerima masukan string dan mengembalikannya string yang berisi bilangan saja
-
-    # KAMUS LOKAL
-    # strdigit : string
-
-    # ALGORITMA
-    strdigit = ""
-    for i in range(panjang(string)):
-        if string[i].isdigit():
-            strdigit += string[i]
-
-    return strdigit

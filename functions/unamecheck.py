@@ -6,6 +6,7 @@ allowed = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
            '_', '-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
+
 def username_valid(username):
     # Fungsi yang menerima masukan username dan mengembalikan nilai apakah username hanya berisi
     # elemen pada list allowed
@@ -23,9 +24,10 @@ def username_valid(username):
 
     return count == panjang(username)
 
+
 def isuname_ada(username, datasource):
     # Fungsi yang mereturn indeks user jika ditemukan pada array. Jika tidak ditemukan, maka fungsi mereturn -999
-    # Username diasumsikan tidak case sensitive.
+    # Username case sensitive
 
     # KAMUS LOKAL
     # ada : boolean
@@ -33,12 +35,12 @@ def isuname_ada(username, datasource):
 
     # ALGORITMA
     idx = 0
-    ada = datasource[idx][1].upper() == username.upper()
+    ada = datasource[idx][1] == username
 
     # Mengecek apakah username ada pada array of array of user data
     while idx < panjang(datasource)-1 and not ada:
         idx += 1
-        ada = datasource[idx][1].upper() == username.upper()
+        ada = datasource[idx][1] == username
 
     if not ada:
         idx = -999
