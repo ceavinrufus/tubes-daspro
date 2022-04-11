@@ -1,7 +1,8 @@
 from unamecheck import *
 
 def login(user):
-    # Fungsi yang mereturn atribut user yang login
+    # Fungsi yang meminta username dan password kemudian mereturn indeks user jika berhasil login dan mereturn
+    # -999 jika gagal login
 
     # KAMUS LOKAL
     # username, password : string
@@ -17,15 +18,11 @@ def login(user):
             print("Username hanya dapat mengandung alfabet (A-Z, a-z), underscore (_), strip (-), dan angka (0-9)!")
     password = input("Masukan password: ")
 
-    isUnameAda, idx = isuname_ada(username, user)      # Mengecek apakah username ada pada database
+    idx = isuname_ada(username, user)      # Indeks username yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
 
-    if isUnameAda:
-        if user[idx][3] == password:                    # Mengecek apakah password user benar
-            print("Halo {}! Selamat datang di “Binomo”".format(user[idx][2]))
-            return tuple(user[idx]), True
-        else:
-            print("Password atau username salah atau tidak ditemukan.")
-            return (None, None, None, None, None, None), False
+    if idx >= 0 and user[idx][3] == password:                    # Mengecek apakah password user benar
+        print("Halo {}! Selamat datang di “Binomo”".format(user[idx][2]))
+        return idx
     else:
         print("Password atau username salah atau tidak ditemukan.")
-        return (None, None, None, None, None, None), False
+        return -999

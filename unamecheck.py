@@ -24,20 +24,23 @@ def username_valid(username):
     return count == panjang(username)
 
 def isuname_ada(username, datasource):
-    # Fungsi yang mereturn apakah username sudah ada dan username yang sudah disimpan tersebut.
+    # Fungsi yang mereturn indeks user jika ditemukan pada array. Jika tidak ditemukan, maka fungsi mereturn -999
     # Username diasumsikan tidak case sensitive.
 
     # KAMUS LOKAL
     # ada : boolean
-    # uname : string
+    # idx : integer
 
     # ALGORITMA
-    i = 0
-    ada = datasource[i][1].upper() == username.upper()
+    idx = 0
+    ada = datasource[idx][1].upper() == username.upper()
 
     # Mengecek apakah username ada pada array of array of user data
-    while i < panjang(datasource)-1 and not ada:
-        i += 1
-        ada = datasource[i][1].upper() == username.upper()
+    while idx < panjang(datasource)-1 and not ada:
+        idx += 1
+        ada = datasource[idx][1].upper() == username.upper()
 
-    return ada, i
+    if not ada:
+        idx = -999
+
+    return idx
