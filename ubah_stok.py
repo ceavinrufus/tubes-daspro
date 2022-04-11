@@ -1,4 +1,4 @@
-from arraytools import *
+from functions.arraytools import *
 
 def absolute(x):
     # Fungsi untuk mengembalikan nilai maksimum dari x

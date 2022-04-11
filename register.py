@@ -1,4 +1,4 @@
-from unamecheck import *
+from functions.unamecheck import *
 
 def register(user):
     # KAMUS LOKAL

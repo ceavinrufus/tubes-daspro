@@ -1,5 +1,5 @@
 import os
-from unamecheck import *
+from functions.unamecheck import *
 
 
 def save_file(data, filename, savedir):
@@ -11,11 +11,11 @@ def save_file(data, filename, savedir):
     # ada : boolean
 
     # ALGORITMA
-    path = os.path.join("./savedata", savedir)
+    path = os.path.join("savedata", savedir)
     ada = False
 
     # Mengecek apakah folder save yang dipilih user sudah ada
-    for dirs, subdirs, files in os.walk("./savedata"):
+    for dirs, subdirs, files in os.walk("savedata"):
         if savedir in subdirs:
             ada = True
             break

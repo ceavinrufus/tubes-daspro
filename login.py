@@ -1,4 +1,4 @@
-from unamecheck import *
+from functions.unamecheck import *
 
 def login(user):
     # Fungsi yang meminta username dan password kemudian mereturn indeks user jika berhasil login dan mereturn

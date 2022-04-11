@@ -51,3 +51,17 @@ def joining(arr, delimiter=";"):
         string += str(arr[i])
 
     return string
+
+def extract_integer(string):
+    # Menerima masukan string dan mengembalikannya string yang berisi bilangan saja
+
+    # KAMUS LOKAL
+    # strdigit : string
+
+    # ALGORITMA
+    strdigit = ""
+    for i in range(panjang(string)):
+        if string[i].isdigit():
+            strdigit += string[i]
+
+    return strdigit

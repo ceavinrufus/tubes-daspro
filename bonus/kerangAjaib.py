@@ -1,5 +1,5 @@
 import time
-from arraytools import panjang
+from functions.arraytools import panjang
 
 def lcg(x, m):
     # Fungsi yang mereturn bilangan acak dengan menggunakan metode linear congruential generator
