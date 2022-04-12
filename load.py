@@ -2,7 +2,7 @@ import argparse
 import os
 import sys
 from functions.arraytools import *
-
+from procedures.interface import loading_animation
 
 def dir_path(folder):
     # Validasi apakah argumen yang diberikan saat menjalankan program sesuai atau tidak
@@ -18,7 +18,7 @@ def dir_path(folder):
             print("Tidak ada nama folder yang diberikan!")
             sys.exit("Usage: python program_binomo.py <nama_folder>")
         else:
-            print("Loading...\n")
+            loading_animation()
             return path
     else:  # Jika argumen (nama folder) tidak ditemukan
         sys.exit("Folder ”{}” tidak ditemukan.".format(folder))

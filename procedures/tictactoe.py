@@ -1,9 +1,10 @@
 from functions.gametools import *
 
 
-def tictactoe():
-    # Program yang mensimulasikan game tictactoe. Terdapat 2 pemain, yaitu pemain “X” dan pemain “O” yang secara
-    # bergiliran bertukar melakukan input yang valid
+def tictactoe(board):
+    # Mensimulasikan game tictactoe. Terdapat 2 pemain, yaitu pemain “X” dan pemain “O” secara bergiliran
+    # I.S. Matriks board terdefinisi
+    # F.S. Game tictactoe berakhir dengan salah satu pemain sebagai pemenang atau keduanya seri
 
     # KAMUS LOKAL
     # board : array of array of character
@@ -12,21 +13,17 @@ def tictactoe():
     # smbl : character
 
     # ALGORITMA
-    board = [['#', '#', '#'],
-             ['#', '#', '#'],
-             ['#', '#', '#']]
-
     print("Legenda:")
     print("X Pemain 1")
     print("O Pemain 2")
 
     print("\nStatus Papan")
     for i in range(panjang(board)):
-        print(joining(board[i], delimiter=""), end="\n")        # Mencetak board baris per baris
+        print(joining(board[i], delimiter=""))  # Mencetak board baris per baris
 
     giliran = 0
     win = False
-    while not win and is_kosong(board):  # Loop berhenti jika ada yang menang atau board sudah tidak bisa diisi lagi
+    while not win and is_kosong(board, '#'):  # Loop berhenti jika ada yang menang atau board sudah tidak bisa diisi
         giliran += 1
         smbl = simbol(giliran)
 
@@ -46,7 +43,7 @@ def tictactoe():
                         board[baris][kolom] = smbl
                         print("\nStatus Papan")
                         for i in range(panjang(board)):
-                            print(joining(board[i], delimiter=""), end="\n")        # Mencetak board baris per baris
+                            print(joining(board[i], delimiter=""))  # Mencetak board baris per baris
                         valid = True
             except ValueError:          # Jika input baris atau kolom bukan bilangan bulat
                 print("Input harus berupa bilangan bulat!")
