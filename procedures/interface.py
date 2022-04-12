@@ -14,7 +14,7 @@ def menu(commands, role):
     # idx : integer
 
     # ALGORITMA
-    commands_user = ["buy_game", "list_game", "search_my_game", "riwayat"]
+    commands_user = ["buy_game", "list_game", "search_my_game", "riwayat", "kerangajaib", "tictactoe"]
     commands_admin = ["register", "tambah_game", "ubah_game", "ubah_stok", "topup"]
     commands_guest = ["login", "help"]
 

@@ -1,7 +1,8 @@
+from rich import print
 from functions.tictactools import *
 
 
-def tictactoe(board):
+def tictactoe():
     # Mensimulasikan game tictactoe. Terdapat 2 pemain, yaitu pemain “X” dan pemain “O” secara bergiliran
     # I.S. Matriks board terdefinisi
     # F.S. Game tictactoe berakhir dengan salah satu pemain sebagai pemenang atau keduanya seri
@@ -13,17 +14,19 @@ def tictactoe(board):
     # smbl : character
 
     # ALGORITMA
+    board = [['#', '#', '#'],
+             ['#', '#', '#'],
+             ['#', '#', '#']]
+
     print("Legenda:")
     print("X Pemain 1")
     print("O Pemain 2")
 
-    print("\nStatus Papan")
-    for i in range(panjang(board)):
-        print(joining(board[i], delimiter=""))  # Mencetak board baris per baris
+    cetakpapan(board)
 
     giliran = 0
     win = False
-    while not win and is_kosong(board, '#'):  # Loop berhenti jika ada yang menang atau board sudah tidak bisa diisi
+    while not win or is_kosong(board, '#'):  # Loop berhenti jika ada yang menang atau board sudah tidak bisa diisi
         giliran += 1
         smbl = simbol(giliran)
 
@@ -35,29 +38,22 @@ def tictactoe(board):
                 baris = int(input("Baris: ")) - 1
 
                 if baris >= panjang(board) or kolom >= panjang(board):  # Mengecek apakah input sesuai dengan indeks array (board)
-                    print("\nKotak tidak valid")
+                    cetakpapan(board)
+                    print("\n[red]Kotak tidak valid.")
                 else:
                     if board[baris][kolom] != '#':      # Mengecek apakah kotak yang ingin diisi sudah terisi atau belum
-                        print("\nKotak sudah terisi. Silakan pilih kotak lain.")
+                        cetakpapan(board)
+                        print("\n[red]Kotak sudah terisi. Silakan pilih kotak lain.")
                     else:
                         board[baris][kolom] = smbl
-                        print("\nStatus Papan")
-                        for i in range(panjang(board)):
-                            print(joining(board[i], delimiter=""))  # Mencetak board baris per baris
+                        cetakpapan(board)
                         valid = True
             except ValueError:          # Jika input baris atau kolom bukan bilangan bulat
-                print("Input harus berupa bilangan bulat!")
+                cetakpapan(board)
+                print("\n[red]Input harus berupa bilangan bulat.")
 
         # Mengecek apakah sudah ada yang menang (Secara vertikal atau horizontal atau diagonal)
-        if is_vertikal(smbl, board):
-            print("\n{} menang secara vertikal.".format(smbl))
-            win = True
-        elif is_horizontal(smbl, board):
-            print("\n{} menang secara horizontal.".format(smbl))
-            win = True
-        elif is_diagonal(smbl, board):
-            print("\n{} menang secara diagonal.".format(smbl))
-            win = True
+        win = is_win(smbl, board)
 
     if not win:     # Jika loop berhenti tetapi belum ada yang menang
         print("Seri. Tidak ada yang menang.")
