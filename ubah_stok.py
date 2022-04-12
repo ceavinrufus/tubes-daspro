@@ -1,15 +1,5 @@
 from functions.arraytools import *
-
-def absolute(x):
-    # Fungsi untuk mengembalikan nilai maksimum dari x
-
-    # KAMUS LOKAL
-
-    # ALGORITMA
-    if x >= 0:
-        return x
-    else:
-        return -x
+from functions.formulas import absolute
 
 def ubah_stok(game):
     # I.S. Array game sudah terdefinisi
