@@ -15,7 +15,7 @@ def lcg(m, x=1, a=5):
 
 
 def absolute(x):
-    # Fungsi untuk mengembalikan nilai maksimum dari x
+    # Fungsi untuk mengembalikan nilai absolut dari x
 
     # KAMUS LOKAL
 
