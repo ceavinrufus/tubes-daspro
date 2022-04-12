@@ -11,11 +11,12 @@ def save_file(data, filename, savedir):
     # ada : boolean
 
     # ALGORITMA
-    path = os.path.join("savedata", savedir)
+    thisdir = os.getcwd()
+    path = os.path.join(thisdir, "savedata", savedir)
     ada = False
 
     # Mengecek apakah folder save yang dipilih user sudah ada
-    for dirs, subdirs, files in os.walk("savedata"):
+    for dirs, subdirs, files in os.walk("../savedata"):
         if savedir in subdirs:
             ada = True
             break

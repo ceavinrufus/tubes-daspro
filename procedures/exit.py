@@ -1,5 +1,5 @@
 import sys
-from save import *
+from procedures import save
 
 def exit(user, game, riwayat, kepemilikan):
     # I.S. array user, game, riwayat, dan kepemilikan terdefinisi

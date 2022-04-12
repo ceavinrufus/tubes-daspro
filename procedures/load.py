@@ -11,7 +11,8 @@ def dir_path(folder):
     # path : string
 
     # ALGORITMA
-    path = os.path.join("savedata", folder)  # Direktori folder
+    thisdir = os.getcwd()
+    path = os.path.join(thisdir, "savedata", folder)  # Direktori folder
 
     if os.path.isdir(path):  # Jika argumen sesuai dengan path yang ada, maka program akan lanjut
         if folder == ' ':  # Jika argumen (nama folder) tidak diberikan saat menjalankan program
