@@ -7,3 +7,4 @@ from .ubah_stok import ubah_stok
 from .help import *
 from .kerangajaib import *
 from .tictactoe import *
+from .interface import *
