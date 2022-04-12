@@ -1,4 +1,6 @@
+import os
 from functions.arraytools import *
+from rich import print
 
 
 def is_horizontal(symbol, board):
@@ -70,7 +72,7 @@ def is_kosong(empty, board):
     kosong = False
     for i in range(panjang(board)):
         for j in range(panjang(board)):
-            if board[i][j] == empty:
+            if board[i][j] == empty:    # Mengecek apakah suatu kotak kosong
                 kosong = True
 
     return kosong
@@ -87,3 +89,35 @@ def simbol(giliran):
     else:  # giliran % 2 == 0
         return 'O'
 
+
+def cetakpapan(board):
+    # I.S. Matriks board terdefinisi
+    # F.S. Mencetak board tic tac toe
+
+    # KAMUS LOKAL
+
+    # ALGORITMA
+    os.system("cls")            # Mengosongkan tampilan pada terminal
+    print("\nStatus Papan")
+    for i in range(panjang(board)):
+        print(joining(board[i], delimiter=""))  # Mencetak board baris per baris
+
+
+def is_win(smbl, board):
+    # Fungsi yang mereturn True jika pada board ada yang memenuhi kriteria untuk menang, False jika sebaliknya
+
+    # KAMUS LOKAL
+    # win : boolean
+
+    # ALGORITMA
+    win = False
+    if is_vertikal(smbl, board):
+        print("\n[cyan]{} menang secara vertikal.".format(smbl))
+        win = True
+    elif is_horizontal(smbl, board):
+        print("\n[cyan]{} menang secara horizontal.".format(smbl))
+        win = True
+    elif is_diagonal(smbl, board):
+        print("\n[cyan]{} menang secara diagonal.".format(smbl))
+        win = True
+    return win
