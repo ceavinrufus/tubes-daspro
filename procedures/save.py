@@ -1,6 +1,6 @@
 import os
 from functions.unamecheck import *
-
+from procedures.interface import saving_animation
 
 def save_file(data, filename, savedir):
     # I.S. data dan savedir (direktori tempat menyimpan) terdefinisi
@@ -45,4 +45,4 @@ def save(user, game, riwayat, kepemilikan):
     save_file(riwayat, "riwayat.csv", savedir)
     save_file(kepemilikan, "kepemilikan.csv", savedir)
 
-    print("Saving...")
+    saving_animation()
