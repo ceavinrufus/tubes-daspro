@@ -11,12 +11,14 @@ def save_file(data, filename, savedir):
     # ada : boolean
 
     # ALGORITMA
+    saving_animation(filename)
+
     thisdir = os.getcwd()
     path = os.path.join(thisdir, "savedata", savedir)
     ada = False
 
     # Mengecek apakah folder save yang dipilih user sudah ada
-    for dirs, subdirs, files in os.walk("../savedata"):
+    for dirs, subdirs, files in os.walk(os.path.join(thisdir, "savedata")):
         if savedir in subdirs:
             ada = True
             break
@@ -45,5 +47,3 @@ def save(user, game, riwayat, kepemilikan):
     save_file(game, "game.csv", savedir)
     save_file(riwayat, "riwayat.csv", savedir)
     save_file(kepemilikan, "kepemilikan.csv", savedir)
-
-    saving_animation()

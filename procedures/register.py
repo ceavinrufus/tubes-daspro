@@ -1,4 +1,6 @@
 from functions.unamecheck import *
+from rich import print
+
 
 def register(user):
     # KAMUS LOKAL
@@ -18,7 +20,7 @@ def register(user):
     idx = isuname_ada(username, user)       # Indeks username yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
 
     if idx >= 0:
-        print("Username", user[idx][1], "sudah terpakai, silakan menggunakan username lain.")
+        print("Username [red]{}[/red] sudah terpakai, silakan menggunakan username lain.".format(username))
     else: # Jika username tidak ada pada database, akun berhasil dibuat
-        print("Username", username, "telah berhasil register ke dalam ”Binomo”.")
+        print('Username [red]{}[/red] telah berhasil register ke dalam "Binomo".'.format(username))
         user += [[panjang(user)+1, username, nama, password, "user", 0]]

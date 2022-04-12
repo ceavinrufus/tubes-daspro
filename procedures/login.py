@@ -1,4 +1,6 @@
 from functions.unamecheck import *
+from rich import print
+
 
 def login(user):
     # Fungsi yang meminta username dan password kemudian mereturn indeks user jika berhasil login dan mereturn
@@ -11,7 +13,7 @@ def login(user):
 
     # ALGORITMA
     while True:                                         # Menerima input username pengguna
-        username = input("Masukan username: ")
+        username = input("\nMasukan username: ")
         if username_valid(username):                    # Looping berhenti jika username sudah valid
             break
         else:                                           # Jika username masih belum valid, ditampilkan pesan error
@@ -21,7 +23,6 @@ def login(user):
     idx = isuname_ada(username, user)      # Indeks username yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
 
     if idx >= 0 and user[idx][3] == password:                    # Mengecek apakah password user benar
-        print("Halo {}! Selamat datang di “Binomo”".format(user[idx][2]))
         return idx
     else:
         print("Password atau username salah atau tidak ditemukan.")

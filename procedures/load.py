@@ -19,7 +19,6 @@ def dir_path(folder):
             print("Tidak ada nama folder yang diberikan!")
             sys.exit("Usage: python program_binomo.py <nama_folder>")
         else:
-            loading_animation()
             return path
     else:  # Jika argumen (nama folder) tidak ditemukan
         sys.exit("Folder ”{}” tidak ditemukan.".format(folder))
@@ -35,6 +34,8 @@ def load_file(data, filename, args):
     # f : TextIOWrapper
 
     # ALGORITMA
+    loading_animation(filename)
+
     directory = os.path.join(args.folder, filename)  # Direktori file yang ingin dibuka
     f = open(directory, 'r')  # Membuka file yang ingin dibuka
 
