@@ -1,4 +1,4 @@
-from functions.gametools import *
+from functions.tictactools import *
 
 
 def tictactoe(board):

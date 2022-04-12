@@ -60,7 +60,7 @@ def is_diagonal(symbol, board):
     return diagonal
 
 
-def is_kosong(board):
+def is_kosong(empty, board):
     # Mengecek apakah masih ada bagian board yang belum terisi
 
     # KAMUS LOKAL
@@ -70,7 +70,7 @@ def is_kosong(board):
     kosong = False
     for i in range(panjang(board)):
         for j in range(panjang(board)):
-            if board[i][j] == '#':
+            if board[i][j] == empty:
                 kosong = True
 
     return kosong
