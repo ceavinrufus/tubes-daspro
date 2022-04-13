@@ -1,3 +1,5 @@
+import os
+
 from procedures import *
 from rich import print
 
@@ -21,6 +23,7 @@ while True:
     print('\nSelamat datang di antarmuka "Binomo"')
     menu(commands, "guest")
     choose = input(">>> ")
+    os.system("cls")
     if choose == "login":
         idx = login(user)     # Indeks user pada array. Jika tidak berhasil login, indeks user -999
 
@@ -31,22 +34,16 @@ while True:
 
             choose = input(">>> ")
             if choose in commands:
+                os.system("cls")
                 if user[idx][4] == "admin":             # Menu yang dapat dijalankan oleh admin
                     if choose == "login":
-                        temp = idx
-                        idx = login(user)
-                        if idx < 0:
-                            idx = temp
-                        elif idx == temp:
-                            print("Anda sudah login dengan akun [red]{}[/red]".format(user[idx][1]))
-                        else:
-                            continue
+                        print("Anda sudah login dengan akun [red]{}[/red]".format(user[idx][1]))
                     elif choose == "register":          # Hanya admin
                         register(user)
                     elif choose == "tambah_game":       # Hanya admin
                         pass
                     elif choose == "ubah_game":         # Hanya admin
-                        pass
+                        ubah_game(game)
                     elif choose == "ubah_stok":         # Hanya admin
                         ubah_stok(game)
                     elif choose == "topup":             # Hanya admin
@@ -65,14 +62,7 @@ while True:
                         print("Maaf, anda harus menjadi user untuk melakukan hal tersebut.")
                 elif user[idx][4] == "user":            # Menu yang dapat dijalankan oleh user
                     if choose == "login":
-                        temp = idx
-                        idx = login(user)
-                        if idx < 0:
-                            idx = temp
-                        elif idx == temp:
-                            print("Anda sudah login dengan akun [red]{}[/red]".format(user[idx][1]))
-                        else:
-                            continue
+                        print("Anda sudah login dengan akun [red]{}[/red]".format(user[idx][1]))
                     elif choose == "buy_game":          # Hanya user
                         pass
                     elif choose == "list_game":         # Hanya user
@@ -103,5 +93,5 @@ while True:
     elif choose == "help":
         help_guest()
     else:
-        print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
+        print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login" dan "help"')
     input("\nPress enter to continue..")
