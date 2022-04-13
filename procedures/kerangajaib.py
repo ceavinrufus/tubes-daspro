@@ -1,7 +1,7 @@
 import os
 import time
 from rich import print
-from functions.formulas import lcg
+from functions.formulas import linear_congruential
 from functions.arraytools import panjang
 
 
@@ -17,7 +17,10 @@ def kerangajaib():
     os.system("cls")
     replies = ["hah", "gatau", "iyah", "hmm", "g"]  # List jawaban yang bisa dikeluarkan
 
-    input("Apa pertanyaanmu? ")
-
     second = time.gmtime().tm_sec
-    print("\n[green]{}".format(replies[lcg(panjang(replies), second)]))
+    randomIndex = linear_congruential(panjang(replies), second)
+
+    print("Apa pertanyaanmu?")
+    input(">>> ")
+
+    print("\n[green]{}".format(replies[randomIndex]))
