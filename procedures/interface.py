@@ -26,14 +26,20 @@ def menu(commands, role):
     for i in range(panjang(commands)):
         if role == "admin":
             if commands[i] not in commands_user:
-                print("{}. {}".format(idx, commands[i]))
-                printed += [commands[i]]
-                idx += 1
+                if commands[i] == "login":          # Tidak mencetak menu login jika sudah login
+                    continue
+                else:
+                    print("{}. {}".format(idx, commands[i]))
+                    printed += [commands[i]]
+                    idx += 1
         elif role == "user":
             if commands[i] not in commands_admin:
-                print("{}. {}".format(idx, commands[i]))
-                printed += [commands[i]]
-                idx += 1
+                if commands[i] == "login":          # Tidak mencetak menu login jika sudah login
+                    continue
+                else:
+                    print("{}. {}".format(idx, commands[i]))
+                    printed += [commands[i]]
+                    idx += 1
         else:
             if commands[i] in commands_guest:
                 print("{}. {}".format(idx, commands[i]))
