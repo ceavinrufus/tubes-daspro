@@ -1,4 +1,4 @@
-from functions.formulas import lcg, inv_lcg
+from functions.formulas import linear_congruential, inverse_linear_congruential
 from functions.arraytools import *
 
 allowed = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
@@ -17,12 +17,12 @@ def encrypt(string):
     # encrypted : string
 
     # ALGORITMA
-    encrypted = str(lcg(panjang(allowed), findIndex(string[0], allowed)))       # Inisialisasi variabel
+    encrypted = str(linear_congruential(panjang(allowed), findIndex(string[0], allowed)))       # Inisialisasi variabel
 
     # Menambahkan hasil enkripsi tiap elemen satu per satu
     for i in range(1, panjang(string)):
         encrypted += ","
-        encrypted += str(lcg(panjang(allowed), findIndex(string[i], allowed)))
+        encrypted += str(linear_congruential(panjang(allowed), findIndex(string[i], allowed)))
 
     return encrypted
 
@@ -39,7 +39,7 @@ def decrypt(string):
 
     # Menambahkan hasil dekripsi tiap elemen satu per satu
     for i in arr:
-        index = inv_lcg(panjang(allowed), int(i))
+        index = inverse_linear_congruential(panjang(allowed), int(i))
         decrypted += allowed[index]
 
     return decrypted

@@ -1,15 +1,32 @@
-import time
-
-def lcg(m, x=1, a=5):
-    # Fungsi yang mereturn bilangan acak dengan menggunakan metode linear congruential generator
+def linear_congruential(m, x, a=5, c=3):
+    # Fungsi yang mereturn bilangan acak dengan menggunakan metode linear congruential
 
     # KAMUS LOKAL
     # a, c, x : integer
 
     # ALGORITMA
-    c = time.gmtime().tm_sec        # Nilai c merupakan nilai detik
+    fx = (a*x + c) % m               # Rumus metode linear kongruen
 
-    x = (a*x + c) % m               # Rumus linear congruentiaal generator
+    return fx
+
+
+def modInverse(a, m):
+    # Fungsi yang mereturn nilai dari modular multiplicative inverse
+    for x in range(1, m):
+        if a*x % m == 1:
+            return x
+    return -1
+
+
+def inverse_linear_congruential(m, fx, a=5, c=3):
+    # Fungsi yang mereturn bilangan acak dengan menggunakan metode invers linear congruential generator
+
+    # KAMUS LOKAL
+    # a, c, x : integer
+
+    # ALGORITMA
+    a_inverse = modInverse(a, m)
+    x = (a_inverse * (fx - c)) % m
 
     return x
 
