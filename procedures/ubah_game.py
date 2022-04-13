@@ -1,57 +1,56 @@
-from bnmo_function import *
-from ParsingConverting import *
-def validcode (code):
-    for i in range (panjang(game)):
-        masukan = False
-        if code == game[i][5]:
-            masukan = True
-            break
-        else :
-            masukan = False
-    return masukan
+from functions.arraytools import *
+from rich import print
 
-def indexganti(code):
-    counter = -1
-    for i in range (panjang(game)):
-        counter += 1
-        found = False
-        if code == game[i][5]:
-            found == True
-            break
-    return counter
 
-def ubah_game(game):    
-    while True:
-        code = input("Masukkan game code : ")
-        if not validcode(code):
-            print("Code Game tidak valid. Silakan masukkan code game kembali")
-        else:
-            nama_game = input("Masukkan nama game : ")
-            kategori = input("Masukkan kategori : ")
-            tahun_rilis = input("Masukkan tahun rilis : ")
-            harga = input("Masukkan harga : ")
-            stok_awal = input("Masukkan stok awal : ")
-            if nama_game == '':
-                game[indexganti(code)][0] = game[indexganti(code)][0]
-            else:
-                game[indexganti(code)][0] = nama_game
-            if kategori == '':
-                game[indexganti(code)][1] = game[indexganti(code)][1]
-            else:
-                game[indexganti(code)][1] = kategori
-            if tahun_rilis == '':
-                game[indexganti(code)][2] = game[indexganti(code)][2]
-            else:
-                game[indexganti(code)][2] = tahun_rilis
-            if harga == '' :
-                game[indexganti(code)][3] = game[indexganti(code)][3]
-            else:
-                game[indexganti(code)][3] = harga
-            if stok_awal == '' :
-                game[indexganti(code)][4] = game[indexganti(code)][4]
-            else:
-                game[indexganti(code)][4] = stok_awal
-        return game
+def validId(gameID, game):
+    # Fungsi yang mereturn indeks pertama kali ditemukan pada array game.
+    # Jika tidak ditemukan, maka fungsi mereturn -999
 
-        
+    # KAMUS LOKAL
 
+    # ALGORITMA
+    for i in range(panjang(game)):
+        if gameID == game[i][0]:
+            return i
+
+    return -999
+
+
+def update_data(update, data):
+    # Fungsi yang mengembalikan data terbaru setelah diupdate
+
+    # KAMUS LOKAL
+    # data = string
+
+    # ALGORITMA
+    if update == '':        # Jika update kosong, data tetap sama
+        data = data
+    else:                   # Jika update tidak kosong, data diganti dengan update terbaru
+        data = update
+
+    return data
+
+
+def ubah_game(game):
+    # I.S. Array game terdefinisi
+    # F.S. Data pada game ada/tidak ada yang diubah
+
+    # KAMUS LOKA
+    # gameID, nama_game, kategori, tahun_rilis, harga : string
+    # indeks : integer
+
+    # ALGORITMA
+    gameID = input("Masukkan ID game: ")
+    indeks = validId(gameID, game)      # Indeks game pada array. Jika tidak ditemukan, indeksnya -999
+
+    if indeks < 0:
+        print("[red]ID game tidak valid.")
+    else:
+        nama_game = update_data(input("Masukkan nama game: "), game[indeks][1])
+        kategori = update_data(input("Masukkan kategori: "), game[indeks][2])
+        tahun_rilis = update_data(input("Masukkan tahun rilis: "), game[indeks][3])
+        harga = update_data(input("Masukkan harga: "), game[indeks][4])
+
+        game[indeks] = [gameID, nama_game, kategori, tahun_rilis, harga, game[indeks][5]]
+
+        print("\n[green]Data berhasil diubah!")
