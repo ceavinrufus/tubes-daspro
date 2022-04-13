@@ -14,8 +14,7 @@ def panjang(arr):
 
 
 def splitting(string, delimiter=";"):
-    # Memisahkan delimiter dari string.
-    # Syaratnya elemen setelah delimiter terakhir harus integer
+    # Memisahkan delimiter dari string
 
     # KAMUS LOKAL
     # temp : string
@@ -53,3 +52,10 @@ def joining(arr, delimiter=";"):
         string += str(arr[i])
 
     return string
+
+
+def findIndex(element, arr):
+    # Mencari indeks pertama ditemukan element dalam sebuah array
+    for i in range(panjang(arr)):
+        if element == arr[i]:
+            return i
