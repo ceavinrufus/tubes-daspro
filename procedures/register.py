@@ -1,5 +1,6 @@
 from functions.unamecheck import *
 from rich import print
+from functions.cipher import encrypt
 
 
 def register(user):
@@ -23,4 +24,4 @@ def register(user):
         print("Username [red]{}[/red] sudah terpakai, silakan menggunakan username lain.".format(username))
     else: # Jika username tidak ada pada database, akun berhasil dibuat
         print('Username [red]{}[/red] telah berhasil register ke dalam "Binomo".'.format(username))
-        user += [[panjang(user)+1, username, nama, password, "user", 0]]
+        user += [[panjang(user)+1, username, nama, encrypt(password), "user", 0]]

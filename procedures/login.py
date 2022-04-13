@@ -1,6 +1,6 @@
 from functions.unamecheck import *
 from rich import print
-
+from functions.cipher import decrypt
 
 def login(user):
     # Fungsi yang meminta username dan password kemudian mereturn indeks user jika berhasil login dan mereturn
@@ -22,7 +22,7 @@ def login(user):
 
     idx = isuname_ada(username, user)      # Indeks username yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
 
-    if idx >= 0 and user[idx][3] == password:                    # Mengecek apakah password user benar
+    if idx >= 0 and decrypt(user[idx][3]) == password:                    # Mengecek apakah password user benar
         return idx
     else:
         print("Password atau username salah atau tidak ditemukan.")
