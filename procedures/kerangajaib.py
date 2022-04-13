@@ -1,4 +1,5 @@
 import os
+import time
 from rich import print
 from functions.formulas import lcg
 from functions.arraytools import panjang
@@ -18,4 +19,5 @@ def kerangajaib():
 
     input("Apa pertanyaanmu? ")
 
-    print("\n[green]{}".format(replies[lcg(panjang(replies))]))
+    second = time.gmtime().tm_sec
+    print("\n[green]{}".format(replies[lcg(panjang(replies), second)]))
