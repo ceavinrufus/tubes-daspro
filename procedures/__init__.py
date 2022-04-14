@@ -1,3 +1,4 @@
+from .buy_game import buy_game
 from .exit import exit
 from .help import *
 from .interface import *
