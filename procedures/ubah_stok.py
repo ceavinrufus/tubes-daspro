@@ -1,39 +1,37 @@
 from functions.arraytools import *
-from functions.formulas import absolute
+from functions.formulas import absolute as abso
+
 
 def ubah_stok(game):
     # I.S. Array game sudah terdefinisi
-    # F.S. Elemen stok ([5]) ditambahi/dikurangi sesuai masukan admin
+    # F.S. Stok ditambah/dikurang sesuai masukan admin
 
     # KAMUS LOKAL
-    # id : string
+    # gameid : string
     # jumlah, stok : integer
-    # found : boolean
 
     # ALGORITMA
-    id = input("Masukkan ID game: ")
-    jumlah = int(input("Masukkan jumlah: "))
+    gameid = input("\nMasukkan ID game: ")
+    try:
+        jumlah = int(input("Masukkan jumlah: "))
+    except ValueError:
+        print("[red]Jumlah stok harus berupa angka!")
+        return
 
-    # Pencarian ID game sesuai input pada array game
-    found = False
-    i = 0
-    while i < panjang(game) and not found:
-        if game[i][0] == id:
-            found = True
-        else:
-            i += 1
+    idx = find_index_matriks(gameid, game, 0)      # Indeks ID game yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
 
-    if found:
-        stok = int(game[i][5])      # Variabel sementara untuk menampung nilai integer dari stok pada array
-        if jumlah < 0 and stok >= absolute(jumlah):     # Jika stok dikurangi dan stok mencukupi
-            stok += jumlah
-            print("Stok game {} berhasil dikurangi. Stok sekarang: {}".format(game[i][1], stok))
-        elif jumlah < 0 and stok < absolute(jumlah):    # Jika stok dikurangi tetapi stok tidak mencukupi
-            print("Stok game {} gagal dikurangi karena stok kurang. Stok sekarang: {} (< {})".format(game[i][1], stok,
-                                                                                                      absolute(jumlah)))
-        else: # jumlah >= 0
-            stok += jumlah
-            print("Stok game {} berhasil ditambahkan. Stok sekarang: {}".format(game[i][1], stok))
-        game[i][5] = str(stok)      # Mengembalikan nilai stok pada array dalam bentuk string
-    else:
+    if idx >= 0:
+        stok = int(game[idx][5]) + jumlah                   # Nilai stok setelah diubah
+        if jumlah < 0:
+            if stok >= 0:                                   # Jika stok mencukupi, stok diubah
+                game[idx][5] = stok
+                print("Stok game {} berhasil dikurangi. Stok sekarang: {}".format(game[idx][1], stok))
+            else:  # stok < 0
+                print("Stok game {} gagal dikurangi. Stok sekarang: {} (< {})".format(game[idx][1], stok, abso(jumlah)))
+        else:  # jumlah >= 0
+            game[idx][5] = stok                             # Mengubah stok pada array
+            print("Stok game {} berhasil ditambahkan. Stok sekarang: {}".format(game[idx][1], stok))
+    else:  # idx < 0
         print("Tidak ada game dengan ID tersebut!")
+
+    return

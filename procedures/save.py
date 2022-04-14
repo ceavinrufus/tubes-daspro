@@ -1,5 +1,5 @@
 import os
-from functions.unamecheck import *
+from functions.arraytools import joining
 from procedures.interface import saving_animation
 
 def save_file(data, filename, savedir):
@@ -32,6 +32,8 @@ def save_file(data, filename, savedir):
     for row in data:  # Menuliskan tiap baris pada array ke dalam file
         f.writelines(joining(row) + "\n")
 
+    return
+
 
 def save(user, game, riwayat, kepemilikan):
     # I.S. array user, game, riwayat, dan kepemilikan terdefinisi
@@ -47,3 +49,5 @@ def save(user, game, riwayat, kepemilikan):
     save_file(game, "game.csv", savedir)
     save_file(riwayat, "riwayat.csv", savedir)
     save_file(kepemilikan, "kepemilikan.csv", savedir)
+
+    return

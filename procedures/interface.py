@@ -52,6 +52,8 @@ def menu(commands, role):
             print("[dim]{}. {}[/dim]".format(idx, commands[i]))
             idx += 1
 
+    return
+
 
 def loading_animation(filename):
     # I.S. nama file yang ingin diload ada
@@ -63,6 +65,8 @@ def loading_animation(filename):
     with Console().status('Loading [blue]{}[/blue]'.format(filename)):
         time.sleep(1)
         print('\n[blue]{}[/blue] loaded'.format(filename))
+
+    return
 
 
 def saving_animation(filename):
@@ -76,3 +80,5 @@ def saving_animation(filename):
         time.sleep(0.1)
 
     print('[blue]{}[/blue] saved'.format(filename))
+
+    return

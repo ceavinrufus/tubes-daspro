@@ -24,3 +24,5 @@ def kerangajaib():
     input(">>> ")
 
     print("\n[green]{}".format(replies[randomIndex]))
+
+    return

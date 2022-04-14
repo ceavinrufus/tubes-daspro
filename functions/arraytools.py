@@ -1,3 +1,12 @@
+alphanumeric = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+                'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+                'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+                'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+specialchar = ['_', '-', ' ', '@', '%', '+', '/', '!', '#', '$', '?', ':', '.', '(',
+               ')', '~', '^', '&', '*', '=', '{', '[', '}', ']', '|', '<', '>']
+
+
 def panjang(arr):
     # Fungsi yang menerima sebuah array dan menghitung panjang array tersebut
 
@@ -7,7 +16,7 @@ def panjang(arr):
     # ALGORITMA
     pjg = 0
 
-    for i in arr:       # Setiap membaca ada sebuah elemen dalam array, nilai pjg bertambah 1
+    for _ in arr:       # Setiap membaca ada sebuah elemen dalam array, nilai pjg bertambah 1
         pjg += 1
 
     return pjg
@@ -54,8 +63,57 @@ def joining(arr, delimiter=";"):
     return string
 
 
-def findIndex(element, arr):
-    # Mencari indeks pertama ditemukan element dalam sebuah array
+def find_index_matriks(element, arr, idx):
+    # Mencari indeks pertama ditemukan element dalam sebuah array dalam sebuah matriks.
+    # Jika tidak ditemukan, maka fungsi mereturn -999
+
+    # KAMUS LOKAL
+
+    # ALGORITMA
+    for i in range(panjang(arr)):
+        if element == arr[i][idx]:
+            return i
+    return -999
+
+
+def find_index_array(element, arr):
+    # Mencari indeks pertama ditemukan element dalam sebuah array.
+    # Jika tidak ditemukan, maka fungsi mereturn -999
+
+    # KAMUS LOKAL
+
+    # ALGORITMA
     for i in range(panjang(arr)):
         if element == arr[i]:
             return i
+    return -999
+
+
+def update_data(update, arr):
+    # Fungsi untuk mengupdate data pada indeks suatu array
+
+    # KAMUS LOKAL
+
+    # ALGORITMA
+    if update == '':        # Jika update kosong, data tetap sama
+        return arr
+    else:                   # Jika update tidak kosong, data diganti dengan update terbaru
+        return arr
+
+
+def is_subset(arr1, arr2):
+    # Fungsi yang mereturn True jika arr1 merupakan subset dari arr2
+    # elemen pada list allowed
+
+    # KAMUS LOKAL
+    # count : integer
+
+    # ALGORITMA
+    count = 0
+
+    # Mengecek apakah setiap karakter pada username valid (terdapat pada list allowed)
+    for i in range(panjang(arr1)):
+        if arr1[i] in arr2:
+            count += 1
+
+    return count == panjang(arr1)

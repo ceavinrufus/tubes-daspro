@@ -17,6 +17,8 @@ def help_user():
     print("8. save - Untuk menyimpan data User")
     print("9. exit - Untuk keluar dari program")
 
+    return
+
 
 def help_admin():
     # I.S. -
@@ -38,6 +40,8 @@ def help_admin():
     print("10. save - Untuk menyimpan data User")
     print("11. exit - Untuk keluar dari program")
 
+    return
+
 
 def help_guest():
     # I.S. -
@@ -50,3 +54,4 @@ def help_guest():
     print("1. login - Untuk melakukan login ke dalam sistem")
     print("2. help - Untuk menampilkan instruksi pemakaian perintah untuk guest")
 
+    return

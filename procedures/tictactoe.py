@@ -1,4 +1,3 @@
-from rich import print
 from functions.tictactools import *
 
 
@@ -36,24 +35,28 @@ def tictactoe():
             try:
                 kolom = int(input("Kolom: ")) - 1
                 baris = int(input("Baris: ")) - 1
-
-                if baris >= panjang(board) or kolom >= panjang(board):  # Mengecek apakah input sesuai dengan indeks array (board)
-                    cetakpapan(board)
-                    print("\n[red]Kotak tidak valid.")
-                else:
-                    if board[baris][kolom] != '#':      # Mengecek apakah kotak yang ingin diisi sudah terisi atau belum
-                        cetakpapan(board)
-                        print("\n[red]Kotak sudah terisi. Silakan pilih kotak lain.")
-                    else:
-                        board[baris][kolom] = smbl
-                        cetakpapan(board)
-                        valid = True
-            except ValueError:          # Jika input baris atau kolom bukan bilangan bulat
+            except ValueError:  # Jika input baris atau kolom bukan bilangan bulat
                 cetakpapan(board)
                 print("\n[red]Input harus berupa bilangan bulat.")
+                continue
+
+            if baris >= panjang(board) or kolom >= panjang(board):  # Mengecek apakah input sesuai dengan indeks array (board)
+                cetakpapan(board)
+                print("\n[red]Kotak tidak valid.")
+            else:
+                if board[baris][kolom] != '#':      # Mengecek apakah kotak yang ingin diisi sudah terisi atau belum
+                    cetakpapan(board)
+                    print("\n[red]Kotak sudah terisi. Silakan pilih kotak lain.")
+                else:
+                    board[baris][kolom] = smbl
+                    cetakpapan(board)
+                    valid = True
+
 
         # Mengecek apakah sudah ada yang menang (Secara vertikal atau horizontal atau diagonal)
         win = is_win(smbl, board)
 
     if not win:     # Jika loop berhenti tetapi belum ada yang menang
         print("Seri. Tidak ada yang menang.")
+
+    return

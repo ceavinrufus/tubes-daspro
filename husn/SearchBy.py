@@ -17,28 +17,16 @@
 # Parsing Data CSV to Array
 from ParsingConverting import convertCSVtoArr, TakeDataFrom
 
-# Parsing Data Game CSV to Array
-data_game="D:\.data\[] DATA HUSNIA\[1] KAMPUS\SEMESTER 2\DASAR PEMROGRAMAN\[] TUGAS BESAR\DATA\game.csv"
-baris_game = convertCSVtoArr(TakeDataFrom(data_game))[0]
-kolom_game = convertCSVtoArr(TakeDataFrom(data_game))[1]
-arrGame = convertCSVtoArr(TakeDataFrom(data_game))[2]
-
-# Parsing Data Kepemilikan CSV to Array
-data_milik="D:\.data\[] DATA HUSNIA\[1] KAMPUS\SEMESTER 2\DASAR PEMROGRAMAN\[] TUGAS BESAR\DATA\kepemilikan.csv"
-baris_milik = convertCSVtoArr(TakeDataFrom(data_milik))[0]
-kolom_milik = convertCSVtoArr(TakeDataFrom(data_milik))[1]
-arrMilik = convertCSVtoArr(TakeDataFrom(data_milik))[2]
-
 def searchData(array, col, elmt) :
-# Menghasilkan tuple yang terdiri dari daftar game yang memenuhi kriteria
-# dan found, bernilai True jika ada game yang ditemukan, False jika tidak
+    # Menghasilkan tuple yang terdiri dari daftar game yang memenuhi kriteria
+    # dan found, bernilai True jika ada game yang ditemukan, False jika tidak
 
-# KAMUS LOKAL
-#   found : Boolean
-#   searchResult : Array of String
-#   idx, i, j : Integer
+    # KAMUS LOKAL
+    # found : boolean
+    # searchResult : array of string
+    # idx, i, j : integer
 
-# ALGORITMA FUNGSI/PROSEDUR
+    # ALGORITMA FUNGSI/PROSEDUR
     found = False
     searchResult = ['' for i in range (baris_milik)]
     idx = 0

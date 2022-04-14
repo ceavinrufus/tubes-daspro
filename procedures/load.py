@@ -4,6 +4,7 @@ import sys
 from functions.arraytools import *
 from procedures.interface import loading_animation
 
+
 def dir_path(folder):
     # Validasi apakah argumen yang diberikan saat menjalankan program sesuai atau tidak
 
@@ -43,6 +44,8 @@ def load_file(data, filename, args):
     for row in f:
         data += [splitting(row)]
 
+    return
+
 
 def load(user, game, riwayat, kepemilikan):
     # I.S. array user, game, riwayat, dan kepemilikan terdefinisi
@@ -64,3 +67,5 @@ def load(user, game, riwayat, kepemilikan):
     load_file(game, "game.csv", args)
     load_file(riwayat, "riwayat.csv", args)
     load_file(kepemilikan, "kepemilikan.csv", args)
+
+    return

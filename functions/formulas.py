@@ -1,4 +1,4 @@
-def linear_congruential(m, x, a=5, c=3):
+def linear_congruential(m, x, a=3, c=5):
     # Fungsi yang mereturn bilangan acak dengan menggunakan metode linear congruential
 
     # KAMUS LOKAL
@@ -18,7 +18,7 @@ def modInverse(a, m):
     return -1
 
 
-def inverse_linear_congruential(m, fx, a=5, c=3):
+def inverse_linear_congruential(m, fx, a=3, c=5):
     # Fungsi yang mereturn bilangan acak dengan menggunakan metode invers linear congruential generator
 
     # KAMUS LOKAL

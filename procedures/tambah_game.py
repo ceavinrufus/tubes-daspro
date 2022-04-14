@@ -1,17 +1,16 @@
-from ParsingConverting import *
-from bnmo_function import *
+from functions.arraytools import *
 game = [[]]
 
+allowednum = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 def codegame(game):
     seri = int(panjang(game) + 1)
     if 1<=seri<=9 :
         code = "GAME00"+str(seri)
-    elif 10<=seri<=99 : 
+    elif 10<=seri<=99 :
         code = "GAME0"+str(seri)
     else:
-        code = "GAME"+str(seri) 
+        code = "GAME"+str(seri)
     return code
-allowednum = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 def IntValid(x) :
     valid = True
     counter = 0

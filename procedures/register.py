@@ -1,27 +1,41 @@
-from functions.unamecheck import *
-from rich import print
+from functions.arraytools import *
 from functions.cipher import encrypt
+from rich import print
+
+allowed_uname = alphanumeric + ['_', '-']
+allowed_password = alphanumeric + specialchar
 
 
 def register(user):
+    # I.S. Array user terdefinisi
+    # F.S. Ditambahkan data berupa array ke dalam array user
+
     # KAMUS LOKAL
-    # nama, username, password, uname : string
+    # nama, username, password : string
     # idx : integer
 
     # ALGORITMA
-    nama = input("Masukan nama: ")                  # Menerima input nama pengguna
-    while True:                                     # Menerima input username pengguna
+    nama = input("\nMasukan nama: ")
+    while True:
         username = input("Masukan username: ")
-        if username_valid(username):                # Looping berhenti jika username sudah valid
+        if is_subset(username, allowed_uname):                # Looping berhenti jika username sudah valid
             break
-        else: # Jika username masih belum valid, ditampilkan pesan error
-            print("Username hanya dapat mengandung alfabet (A-Z, a-z), underscore (_), strip (-), dan angka (0-9)!")
-    password = input("Masukan password: ")          # Menerima input password pengguna
+        else:                                       # Jika username masih belum valid, ditampilkan pesan error
+            print("[red]Username hanya dapat mengandung alfabet (A-Z, a-z), underscore (_), strip (-), dan angka (0-9)!")
 
-    idx = isuname_ada(username, user)       # Indeks username yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
+    while True:
+        password = input("Masukan password: ")
+        if is_subset(password, allowed_password):                # Looping berhenti jika password sudah valid
+            break
+        else:                                       # Jika username masih belum valid, ditampilkan pesan error
+            print("[red]Password mengandung karakter yang tidak valid")
+
+    idx = find_index_matriks(username, user, 1)       # Indeks username yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
 
     if idx >= 0:
         print("Username [red]{}[/red] sudah terpakai, silakan menggunakan username lain.".format(username))
     else: # Jika username tidak ada pada database, akun berhasil dibuat
         print('Username [red]{}[/red] telah berhasil register ke dalam "Binomo".'.format(username))
         user += [[panjang(user)+1, username, nama, encrypt(password), "user", 0]]
+
+    return

@@ -37,7 +37,7 @@ while True:
                 os.system("cls")
                 if user[idx][4] == "admin":             # Menu yang dapat dijalankan oleh admin
                     if choose == "login":
-                        print("Anda sudah login dengan akun [red]{}[/red]".format(user[idx][1]))
+                        print("\nAnda sudah login dengan akun [red]{}[/red]".format(user[idx][1]))
                     elif choose == "register":          # Hanya admin
                         register(user)
                     elif choose == "tambah_game":       # Hanya admin
@@ -47,7 +47,7 @@ while True:
                     elif choose == "ubah_stok":         # Hanya admin
                         ubah_stok(game)
                     elif choose == "topup":             # Hanya admin
-                        pass
+                        topup(user)
                     elif choose == "list_game_toko":
                         pass
                     elif choose == "search_game_at_store":
@@ -62,7 +62,7 @@ while True:
                         print("Maaf, anda harus menjadi user untuk melakukan hal tersebut.")
                 elif user[idx][4] == "user":            # Menu yang dapat dijalankan oleh user
                     if choose == "login":
-                        print("Anda sudah login dengan akun [red]{}[/red]".format(user[idx][1]))
+                        print("\nAnda sudah login dengan akun [red]{}[/red]".format(user[idx][1]))
                     elif choose == "buy_game":          # Hanya user
                         pass
                     elif choose == "list_game":         # Hanya user
