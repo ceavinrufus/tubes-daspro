@@ -40,7 +40,11 @@ def tambah_game(game):
         new[4] = stripping(input("Masukkan harga: "))
         new[5] = stripping(input("Masukkan stok awal: "))
 
-    last_gameid = extract_integer(game[-1][0])
+    if panjang(game) > 0:
+        last_gameid = extract_integer(game[-1][0])
+    else:
+        last_gameid = 0
+
     new = ['','','','','','']               # Inisialisasi array new
 
     input_game()
@@ -48,6 +52,8 @@ def tambah_game(game):
         os.system("cls")
         print("\n[red]Mohon masukkan semua informasi mengenai game agar dapat disimpan BNMO.")
         input_game()
+
     game += [new]           # Menambahkan array new ke dalam game
+    print('\n[green]Selamat! Berhasil menambahkan game "{}"'.format(new[1]))
 
     return
