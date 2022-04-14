@@ -11,7 +11,7 @@ def ubah_game(game):
     # indeks : integer
 
     # ALGORITMA
-    gameID = input("\nMasukkan ID game: ")
+    gameID = input("\nMasukkan ID game: ").upper()
     indeks = find_index_matriks(gameID, game, 0)      # Indeks game pada array. Jika tidak ditemukan, indeksnya -999
 
     if indeks >= 0:

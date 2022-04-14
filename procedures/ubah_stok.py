@@ -1,6 +1,6 @@
 from functions.arraytools import *
 from functions.formulas import absolute as abso
-
+from rich import print
 
 def ubah_stok(game):
     # I.S. Array game sudah terdefinisi
@@ -11,7 +11,7 @@ def ubah_stok(game):
     # jumlah, stok : integer
 
     # ALGORITMA
-    gameid = input("\nMasukkan ID game: ")
+    gameid = input("\nMasukkan ID game: ").upper()
     try:
         jumlah = int(input("Masukkan jumlah: "))
     except ValueError:
@@ -25,13 +25,16 @@ def ubah_stok(game):
         if jumlah < 0:
             if stok >= 0:                                   # Jika stok mencukupi, stok diubah
                 game[idx][5] = stok
-                print("Stok game {} berhasil dikurangi. Stok sekarang: {}".format(game[idx][1], stok))
+                print("\n[green]Stok game {} berhasil dikurangi.".format(game[idx][1]))
+                print("Stok sekarang: {}".format(stok))
             else:  # stok < 0
-                print("Stok game {} gagal dikurangi. Stok sekarang: {} (< {})".format(game[idx][1], stok, abso(jumlah)))
+                print("\n[green]Stok game {} gagal dikurangi.".format(game[idx][1]))
+                print("Stok sekarang: {} (< {})".format(game[idx][5], abso(jumlah)))
         else:  # jumlah >= 0
             game[idx][5] = stok                             # Mengubah stok pada array
-            print("Stok game {} berhasil ditambahkan. Stok sekarang: {}".format(game[idx][1], stok))
+            print("\n[green]Stok game {} berhasil ditambahkan.".format(game[idx][1]))
+            print("Stok sekarang: {}".format(stok))
     else:  # idx < 0
-        print("Tidak ada game dengan ID tersebut!")
+        print("\n[red]Tidak ada game dengan ID {}!".format(gameid))
 
     return
