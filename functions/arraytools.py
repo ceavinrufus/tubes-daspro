@@ -89,16 +89,16 @@ def find_index_array(element, arr):
     return -999
 
 
-def update_data(update, arr):
+def update_data(new, old):
     # Fungsi untuk mengupdate data pada indeks suatu array
 
     # KAMUS LOKAL
 
     # ALGORITMA
-    if update == '':        # Jika update kosong, data tetap sama
-        return arr
+    if new == '':        # Jika update kosong, data tetap sama
+        return old
     else:                   # Jika update tidak kosong, data diganti dengan update terbaru
-        return arr
+        return new
 
 
 def is_subset(arr1, arr2):
