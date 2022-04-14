@@ -1,5 +1,6 @@
+import os
 import sys
-from procedures import save
+from procedures.save import save
 
 def exit(user, game, riwayat, kepemilikan):
     # I.S. array user, game, riwayat, dan kepemilikan terdefinisi
@@ -9,13 +10,15 @@ def exit(user, game, riwayat, kepemilikan):
     # ans : string
 
     # ALGORITMA
-    print("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)", end=" ")
+    print("\nApakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)", end=" ")
 
     while True:
         ans = input()
         if ans.upper() != "Y" and ans.upper() != "N":
-            print("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)", end=" ")
+            os.system("cls")
+            print("\nApakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)", end=" ")
         else:
             if ans.upper() == "Y":
                 save(user, game, riwayat, kepemilikan)
+            os.system("cls")
             sys.exit()

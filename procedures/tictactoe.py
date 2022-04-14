@@ -25,7 +25,7 @@ def tictactoe():
 
     giliran = 0
     win = False
-    while not win or is_kosong(board, '#'):  # Loop berhenti jika ada yang menang atau board sudah tidak bisa diisi
+    while not win or board_kosong(board, '#'):  # Loop berhenti jika ada yang menang atau board sudah tidak bisa diisi
         giliran += 1
         smbl = simbol(giliran)
 

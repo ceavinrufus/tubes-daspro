@@ -29,7 +29,7 @@ while True:
 
         while idx >= 0:
             os.system("cls")
-            print('\nHalo [red]{}[/red]!'.format(user[idx][2]))
+            print('\nHalo [blue]{}[/blue]!'.format(user[idx][2]))
             menu(commands, user[idx][4])
 
             choose = input(">>> ")
@@ -37,11 +37,11 @@ while True:
                 os.system("cls")
                 if user[idx][4] == "admin":             # Menu yang dapat dijalankan oleh admin
                     if choose == "login":
-                        print("\nAnda sudah login dengan akun [red]{}[/red]".format(user[idx][1]))
+                        print("\nAnda sudah login dengan akun [blue]{}[/blue]".format(user[idx][1]))
                     elif choose == "register":          # Hanya admin
                         register(user)
                     elif choose == "tambah_game":       # Hanya admin
-                        pass
+                        tambah_game(game)
                     elif choose == "ubah_game":         # Hanya admin
                         ubah_game(game)
                     elif choose == "ubah_stok":         # Hanya admin
@@ -62,7 +62,7 @@ while True:
                         print("Maaf, anda harus menjadi user untuk melakukan hal tersebut.")
                 elif user[idx][4] == "user":            # Menu yang dapat dijalankan oleh user
                     if choose == "login":
-                        print("\nAnda sudah login dengan akun [red]{}[/red]".format(user[idx][1]))
+                        print("\nAnda sudah login dengan akun [blue]{}[/blue]".format(user[idx][1]))
                     elif choose == "buy_game":          # Hanya user
                         pass
                     elif choose == "list_game":         # Hanya user
@@ -86,12 +86,12 @@ while True:
                     elif choose == "exit":
                         exit(user, game, riwayat, kepemilikan)
                     else:
-                        print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
+                        print("\nMaaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
             else:
                 print('Tidak ada menu "{}"'.format(choose))
             input("\nPress enter to continue..")
     elif choose == "help":
         help_guest()
     else:
-        print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login" dan "help"')
+        print('\nMaaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login" dan "help"')
     input("\nPress enter to continue..")

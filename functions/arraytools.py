@@ -117,3 +117,57 @@ def is_subset(arr1, arr2):
             count += 1
 
     return count == panjang(arr1)
+
+
+def right_strip(string, toRemove=" "):
+    # Menghilangkan trailing character pada string sesuai argumen saat memanggil fungsi
+
+    # KAMUS LOKAL
+    # new_str, temp : string
+
+    # ALGORITMA
+    new_str = ""
+    temp = ""
+
+    for char in string:
+        temp += char
+        if char == toRemove:
+            continue
+        elif char != toRemove:              # Jika karakter-karakter awal bukan lagi yang ingin dihilangkan
+            new_str += temp                 # new_str diisi dengan string yang sudah ditampung pada temp
+            temp = ""
+
+    return new_str
+
+
+def left_strip(string, toRemove=" "):
+    # Menghilangkan leading character pada string sesuai argumen saat memanggil fungsi
+
+    # KAMUS LOKAL
+    # new_str : string
+    # temp : integer
+
+    # ALGORITMA
+    new_str = ""
+    temp = 0            # Variabel untuk menyimpan indeks pertama kali karakter bukan lagi yang ingin dihilangkan
+    for i in range(panjang(string)):
+        if string[i] == toRemove:
+            temp = i+1
+        else:
+            break           # Loop berhenti jika karakter-karakter awal bukan spasi
+
+    for char in range(temp, panjang(string)):   # Looping hanya dimulai dari indeks setelah karakter yang ingin dihilangkan
+        new_str += string[char]
+
+    return new_str
+
+
+def stripping(string, toRemove=" "):
+    # Menghilangkan leading dan trailing character pada string sesuai argumen saat memanggil fungsi
+
+    # KAMUS LOKAL
+
+    # ALGORITMA
+    new_str = left_strip(right_strip(string, toRemove), toRemove)
+
+    return new_str

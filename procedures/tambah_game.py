@@ -1,43 +1,53 @@
+import os
+from rich import print
 from functions.arraytools import *
-game = [[]]
-
-allowednum = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-def codegame(game):
-    seri = int(panjang(game) + 1)
-    if 1<=seri<=9 :
-        code = "GAME00"+str(seri)
-    elif 10<=seri<=99 :
-        code = "GAME0"+str(seri)
-    else:
-        code = "GAME"+str(seri)
-    return code
-def IntValid(x) :
-    valid = True
-    counter = 0
-    for i in (x) :
-        if i not in allowednum :
-           counter += 1
-    if counter == 0 :
-        valid = True
-    else :
-        valid = False
-    return valid
-def arraygame(game):
-    dgame = []
-    while True: #validasi input data game yang didaftarkan
-        nama_game = input("Masukkan nama game : ")
-        kategori = input("Masukkan kategori : ")
-        tahun_rilis = input("Masukkan tahun rilis : ")
-        harga = input("Masukkan harga : ")
-        stok_awal = input("Masukkan stok awal : ")
-        if nama_game == "" or kategori == "" or stok_awal == "" or harga == "" or tahun_rilis == "" or not IntValid(tahun_rilis) or not IntValid(harga) or not IntValid(stok_awal):
-            print("Mohon masukkan semua informasi mengenai game agar dapat disimpan BNMO.") 
-        else :
-            print("Selamat! Berhasil menambahkan game", nama_game, "dengan code game", codegame(game),".")
-            break
-    dgame = [nama_game] + [kategori] + [tahun_rilis] + [harga] + [stok_awal] + [codegame(game)]
-    game = game + [dgame]
-    return game
 
 
-    
+def extract_integer(string):
+    # Mengambil elemen bilangan dari string dengan format GAMEXXX
+
+    # KAMUS LOKAL
+    # ratusan, puluhan, satuan : integer
+
+    # ALGORITMA
+    ratusan = int(string[-3]) * 100
+    puluhan = int(string[-2]) * 10
+    satuan = int(string[-1])
+
+    return ratusan + puluhan + satuan
+
+
+def tambah_game(game):
+    # I.S. Matriks game terdefinisi
+    # F.S. Array game ditambahkan dengan data baru berupa array
+
+    # KAMUS LOKAL
+    # new : array of string
+    # last_gameid : integer
+
+    # ALGORITMA
+    def input_game():
+        # I.S. Array new terdefinisi
+        # F.S. Array new diisi dengan data sesuai input
+
+        # KAMUS LOKAL
+
+        # ALGORITMA
+        new[0] = "GAME{:03d}".format(last_gameid + 1)
+        new[1] = stripping(input("\nMasukkan nama game: "))
+        new[2] = stripping(input("Masukkan kategori: "))
+        new[3] = stripping(input("Masukkan tahun rilis: "))
+        new[4] = stripping(input("Masukkan harga: "))
+        new[5] = stripping(input("Masukkan stok awal: "))
+
+    last_gameid = extract_integer(game[-1][0])
+    new = ['','','','','','']               # Inisialisasi array new
+
+    input_game()
+    while is_subset([''], new):
+        os.system("cls")
+        print("\n[red]Mohon masukkan semua informasi mengenai game agar dapat disimpan BNMO.")
+        input_game()
+    game += [new]           # Menambahkan array new ke dalam game
+
+    return

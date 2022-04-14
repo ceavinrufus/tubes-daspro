@@ -6,6 +6,7 @@ from .load import load
 from .login import login
 from .register import register
 from .save import save
+from .tambah_game import *
 from .tictactoe import *
 from .topup import topup
 from .ubah_game import *

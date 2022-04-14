@@ -62,7 +62,7 @@ def is_diagonal(symbol, board):
     return diagonal
 
 
-def is_kosong(empty, board):
+def board_kosong(empty, board):
     # Mengecek apakah masih ada bagian board yang belum terisi
 
     # KAMUS LOKAL
@@ -102,6 +102,8 @@ def cetakpapan(board):
     for i in range(panjang(board)):
         print(joining(board[i], delimiter=""))  # Mencetak board baris per baris
 
+    return
+
 
 def is_win(smbl, board):
     # Fungsi yang mereturn True jika pada board ada yang memenuhi kriteria untuk menang, False jika sebaliknya
@@ -120,4 +122,5 @@ def is_win(smbl, board):
     elif is_diagonal(smbl, board):
         print("\n[cyan]{} menang secara diagonal.".format(smbl))
         win = True
+
     return win

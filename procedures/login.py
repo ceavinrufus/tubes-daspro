@@ -12,8 +12,8 @@ def login(user):
     # idx : integer
 
     # ALGORITMA
-    username = input("\nMasukan username: ")
-    password = input("Masukan password: ")
+    username = stripping(input("\nMasukan username: "))
+    password = stripping(input("Masukan password: "))
 
     idx = find_index_matriks(username, user, 1)      # Indeks username yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
 
