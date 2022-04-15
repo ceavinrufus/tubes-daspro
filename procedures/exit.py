@@ -2,7 +2,8 @@ import os
 import sys
 from procedures.save import save
 
-def exit(user, game, riwayat, kepemilikan):
+
+def exit(header, user, game, riwayat, kepemilikan):
     # I.S. array user, game, riwayat, dan kepemilikan terdefinisi
     # F.S. program berhenti dan data tersimpan ke dalam file jika pengguna ingin menyimpan
 
@@ -19,6 +20,6 @@ def exit(user, game, riwayat, kepemilikan):
             print("\nApakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)", end=" ")
         else:
             if ans.upper() == "Y":
-                save(user, game, riwayat, kepemilikan)
+                save(header, user, game, riwayat, kepemilikan)
             os.system("cls")
             sys.exit()

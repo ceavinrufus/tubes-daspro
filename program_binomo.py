@@ -1,7 +1,9 @@
 import os
-
 from procedures import *
 from rich import print
+from rich.console import Console
+from rich.markdown import Markdown
+from functions.arraytools import popped
 
 # KAMUS
 # idx : integer
@@ -17,10 +19,16 @@ user = [] ; game = [] ; riwayat = [] ; kepemilikan = []     # Inisiasi array
 
 load(user, game, riwayat, kepemilikan)                      # Load file ke dalam array
 
+header = [user[0], game[0], riwayat[0], kepemilikan[0]]
+
+user = popped(user, 0)
+game = popped(game, 0)
+riwayat = popped(riwayat, 0)
+kepemilikan = popped(kepemilikan, 0)
 
 while True:
     os.system("cls")
-    print('\nSelamat datang di antarmuka "Binomo"')
+    Console().print(Markdown('''\n# Selamat datang di antarmuka "Binomo"'''))
     menu(commands, "guest")
     choose = input(">>> ")
     os.system("cls")
@@ -49,26 +57,26 @@ while True:
                     elif choose == "topup":             # Hanya admin
                         topup(user)
                     elif choose == "list_game_toko":
-                        pass
+                        list_game_toko(game)
                     elif choose == "search_game_at_store":
-                        pass
+                        search_game_at_store(game)
                     elif choose == "help":
                         help_admin()
                     elif choose == "save":
-                        save(user, game, riwayat, kepemilikan)
+                        save(header, user, game, riwayat, kepemilikan)
                     elif choose == "exit":
-                        exit(user, game, riwayat, kepemilikan)
+                        exit(header, user, game, riwayat, kepemilikan)
                     else:
                         print("Maaf, anda harus menjadi user untuk melakukan hal tersebut.")
                 elif user[idx][4] == "user":            # Menu yang dapat dijalankan oleh user
                     if choose == "login":
                         print("\nAnda sudah login dengan akun [blue]{}[/blue]".format(user[idx][1]))
                     elif choose == "buy_game":          # Hanya user
-                        pass
+                        buy_game(idx, user, game, riwayat, kepemilikan)
                     elif choose == "list_game":         # Hanya user
-                        pass
+                        list_game(kepemilikan, game, idx)
                     elif choose == "search_my_game":    # Hanya user
-                        pass
+                        search_my_game(kepemilikan, game, idx)
                     elif choose == "riwayat":           # Hanya user
                         pass
                     elif choose == "kerangajaib":       # Hanya user
@@ -76,15 +84,15 @@ while True:
                     elif choose == "tictactoe":         # Hanya user
                         tictactoe()
                     elif choose == "list_game_toko":
-                        pass
+                        list_game_toko(game)
                     elif choose == "search_game_at_store":
-                        pass
+                        search_game_at_store(game)
                     elif choose == "help":
                         help_user()
                     elif choose == "save":
-                        save(user, game, riwayat, kepemilikan)
+                        save(header, user, game, riwayat, kepemilikan)
                     elif choose == "exit":
-                        exit(user, game, riwayat, kepemilikan)
+                        exit(header, user, game, riwayat, kepemilikan)
                     else:
                         print("\nMaaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
             else:

@@ -106,17 +106,15 @@ def is_subset(arr1, arr2):
     # elemen pada list allowed
 
     # KAMUS LOKAL
-    # count : integer
 
     # ALGORITMA
-    count = 0
 
     # Mengecek apakah setiap karakter pada username valid (terdapat pada list allowed)
     for i in range(panjang(arr1)):
-        if arr1[i] in arr2:
-            count += 1
+        if find_index_array(arr1[i], arr2) < 0:     # Jika arr1[i] tidak ada pada arr2, fungsi akan mereturn -999
+            return False
 
-    return count == panjang(arr1)
+    return True
 
 
 def right_strip(string, toRemove=" "):
@@ -220,26 +218,29 @@ def selection_sorted(matrix, by, ascending=True):
     # iMin, iMax : integer
 
     # ALGORITMA
-    if ascending:
-        for i in range(panjang(matrix)):
-            iMin = i                                            # Inisialisasi nilai index nilai minimum
-            for j in range(i, panjang(matrix)):
-                if matrix[iMin][by] > matrix[j][by]:            # Jika nilai di indeks j lebih kecil, ganti nilai iMin
-                    iMin = j
-            matrix[iMin], matrix[i] = matrix[i], matrix[iMin]   # Tukar elemen pada i dengan elemen pada iMin
-    else:
-        for i in range(panjang(matrix)):
-            iMax = i                                            # Inisialisasi nilai index nilai maksimum
-            for j in range(i, panjang(matrix)):
-                if matrix[iMax][by] < matrix[j][by]:            # Jika nilai di indeks j lebih besar, ganti nilai iMax
-                    iMax = j
-            matrix[iMax], matrix[i] = matrix[i], matrix[iMax]   # Tukar elemen pada i dengan elemen pada iMax
+    sorted_matrix = []
+    sorted_matrix += matrix
 
-    return matrix
+    if ascending:
+        for i in range(panjang(sorted_matrix)):
+            iMin = i                                            # Inisialisasi nilai index nilai minimum
+            for j in range(i, panjang(sorted_matrix)):
+                if int(sorted_matrix[iMin][by]) > int(sorted_matrix[j][by]):            # Jika nilai di indeks j lebih kecil, ganti nilai iMin
+                    iMin = j
+            sorted_matrix[iMin], sorted_matrix[i] = sorted_matrix[i], sorted_matrix[iMin]   # Tukar elemen pada i dengan elemen pada iMin
+    else:
+        for i in range(panjang(sorted_matrix)):
+            iMax = i                                            # Inisialisasi nilai index nilai maksimum
+            for j in range(i, panjang(sorted_matrix)):
+                if int(sorted_matrix[iMax][by]) < int(sorted_matrix[j][by]):            # Jika nilai di indeks j lebih besar, ganti nilai iMax
+                    iMax = j
+            sorted_matrix[iMax], sorted_matrix[i] = sorted_matrix[i], sorted_matrix[iMax]   # Tukar elemen pada i dengan elemen pada iMax
+
+    return sorted_matrix
 
 
 def extract_integer(string):
-    # Mengambil elemen bilangan dari string dengan format GAMEXXX
+    # Mengambil elemen bilangan dari string dengan format "<string>XXX"
 
     # KAMUS LOKAL
     # ratusan, puluhan, satuan : integer

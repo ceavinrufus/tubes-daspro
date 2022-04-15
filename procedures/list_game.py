@@ -1,9 +1,10 @@
 import os
 from functions.arraytools import *
-from procedures.interface import displaytable
+from procedures import displaytable
+from rich import print
 
 
-def search_by_id(kepemilikan, game, userindex):
+def search_user_game(kepemilikan, game, userindex):
     # Fungsi yang mereturn data game yang dimiliki user
 
     # KAMUS LOKAL
@@ -31,10 +32,14 @@ def list_game(kepemilikan, game, userindex):
     # title : string
 
     # ALGORITMA
-    result = search_by_id(kepemilikan, game, userindex)     # Hasil pencarian data game yang dimiliki user
+    result = search_user_game(kepemilikan, game, userindex)     # Hasil pencarian data game yang dimiliki user
 
     title = "Daftar Game pada Inventori"
     header = ["GAME ID", "NAMA", "KATEGORI", "TAHUN RILIS", "HARGA"]
+
+    if not result:
+        print("\n[red]Maaf, kamu belum membeli game. Ketik [bold]buy_game[/bold] untuk beli!")
+        return
 
     os.system("cls")
     displaytable(header, result, title=title)               # Menampilkan tabel

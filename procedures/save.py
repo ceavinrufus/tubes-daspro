@@ -2,6 +2,7 @@ import os
 from functions.arraytools import joining
 from procedures.interface import saving_animation
 
+
 def save_file(data, filename, savedir):
     # I.S. data dan savedir (direktori tempat menyimpan) terdefinisi
     # F.S. data tersimpan ke dalam file csv
@@ -36,7 +37,7 @@ def save_file(data, filename, savedir):
     return
 
 
-def save(user, game, riwayat, kepemilikan):
+def save(header, user, game, riwayat, kepemilikan):
     # I.S. array user, game, riwayat, dan kepemilikan terdefinisi
     # F.S. array user, game, riwayat, dan kepemilikan disimpan ke dalam file
 
@@ -46,9 +47,9 @@ def save(user, game, riwayat, kepemilikan):
     # ALGORITMA
     savedir = input("Masukkan nama folder penyimpanan: ")
 
-    save_file(user, "user.csv", savedir)
-    save_file(game, "game.csv", savedir)
-    save_file(riwayat, "riwayat.csv", savedir)
-    save_file(kepemilikan, "kepemilikan.csv", savedir)
+    save_file([header[0]] + user, "user.csv", savedir)
+    save_file([header[1]] + game, "game.csv", savedir)
+    save_file([header[2]] + riwayat, "riwayat.csv", savedir)
+    save_file([header[3]] + kepemilikan, "kepemilikan.csv", savedir)
 
     return
