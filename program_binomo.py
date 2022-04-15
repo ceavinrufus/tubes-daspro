@@ -7,7 +7,7 @@ from functions.arraytools import popped
 
 # KAMUS
 # idx : integer
-# commands, user, game, history, kepemilikan : array
+# commands, user, game, history, kepemilikan, header : array
 # choose : string
 
 # ALGORITMA
