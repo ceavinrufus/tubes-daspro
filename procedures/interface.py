@@ -2,6 +2,7 @@ import time
 from functions.arraytools import panjang
 from rich.progress import track
 from rich.console import Console
+from rich.table import Table
 from rich import print
 
 
@@ -76,9 +77,30 @@ def saving_animation(filename):
     # KAMUS LOKAL
 
     # ALGORITMA
-    for i in track(range(10), description='Saving [blue]{}[/blue]'.format(filename)):
+    for _ in track(range(10), description='Saving [blue]{}[/blue]'.format(filename)):
         time.sleep(0.1)
 
     print('[blue]{}[/blue] saved'.format(filename))
+
+    return
+
+
+def displaytable(header, matrix, title=""):
+    # I.S. Array header dan matrix terdefinisi
+    # F.S. Mencetak tabel dengan header dan matrix yang sudah terdefinisi
+
+    # KAMUS LOKAL
+    # table : Table
+
+    # ALGORITMA
+    table = Table(title=title)
+
+    for column in header:
+        table.add_column(column)        # Menambahkan kolom
+
+    for row in matrix:
+        table.add_row(*row)             # Menambahkan baris
+
+    Console().print(table)              # Mencetak tabel
 
     return
