@@ -171,3 +171,82 @@ def stripping(string, toRemove=" "):
     new_str = left_strip(right_strip(string, toRemove), toRemove)
 
     return new_str
+
+
+def search_by(element, by, arr):
+    # Mencari elemen dalam sebuah array dalam sebuah matriks. Jika ditemukan, fungsi akan mereturn array di mana
+    # elemen tersebut ditemukan. Jika tidak, fungsi mereturn array kosong. Jika elemen kosong fungsi akan mereturn array
+    # kosong
+
+    # KAMUS LOKAL
+    # found : array
+
+    # ALGORITMA
+    found = []
+    if element == "":       # Jika elemen kosong fungsi akan mereturn array kosong
+        return arr
+    else:
+        for i in range(panjang(arr)):
+            if element == arr[i][by]:   # Jika elemen ditemukan, array terkait akan diitambahkan ke dalam variabel found
+                found += [arr[i]]
+
+    return found
+
+
+def popped(arr, pop_index):
+    # Mereturn array yang elemen pada index tertentunya sudah dihilangkan
+
+    # KAMUS LOKAL
+    # new_arr : array
+
+    # ALGORITMA
+    new_arr = []
+    for i in range(panjang(arr)):
+        if pop_index < 0:                       # Jika menggunakan indexing integer negatif
+            if i == panjang(arr)+pop_index:     # Pada saat pencacah sama dengan index, loop diskip
+                continue
+        else:  # pop_index >= 0
+            if i == pop_index:                  # Pada saat pencacah sama dengan index, loop diskip
+                continue
+        new_arr += [arr[i]]                     # Menambahkan elemen demi elemen ke dalam new_arr
+
+    return new_arr
+
+
+def selection_sorted(matrix, by, ascending=True):
+    # Menyusun array berdasarkan nilai pada kolom tertentu dengan teknik selection sort
+
+    # KAMUS LOKA
+    # iMin, iMax : integer
+
+    # ALGORITMA
+    if ascending:
+        for i in range(panjang(matrix)):
+            iMin = i                                            # Inisialisasi nilai index nilai minimum
+            for j in range(i, panjang(matrix)):
+                if matrix[iMin][by] > matrix[j][by]:            # Jika nilai di indeks j lebih kecil, ganti nilai iMin
+                    iMin = j
+            matrix[iMin], matrix[i] = matrix[i], matrix[iMin]   # Tukar elemen pada i dengan elemen pada iMin
+    else:
+        for i in range(panjang(matrix)):
+            iMax = i                                            # Inisialisasi nilai index nilai maksimum
+            for j in range(i, panjang(matrix)):
+                if matrix[iMax][by] < matrix[j][by]:            # Jika nilai di indeks j lebih besar, ganti nilai iMax
+                    iMax = j
+            matrix[iMax], matrix[i] = matrix[i], matrix[iMax]   # Tukar elemen pada i dengan elemen pada iMax
+
+    return matrix
+
+
+def extract_integer(string):
+    # Mengambil elemen bilangan dari string dengan format GAMEXXX
+
+    # KAMUS LOKAL
+    # ratusan, puluhan, satuan : integer
+
+    # ALGORITMA
+    ratusan = int(string[-3]) * 100
+    puluhan = int(string[-2]) * 10
+    satuan = int(string[-1])
+
+    return ratusan + puluhan + satuan
