@@ -28,13 +28,13 @@ def buy_game(userindex, user, game, riwayat, kepemilikan):
                 if saldo < harga:           # Jika saldonya tidak cukup untuk membeli game
                     print('\n[red]Saldo anda tidak cukup untuk membeli game "{}"!'.format(game[idx][1]))
                 else:
-                    print('\n[green]Game "{}" berhasil dibeli!'.format(game[idx][1]))
-
                     game[idx][5] = stok - 1             # Mengurangi stok game terkait
                     user[userindex][5] = saldo - harga  # Mengurangi saldo user
 
-                    kepemilikan += [[gameID, userindex+1]]                                        # Mengupdate data kepemilikan
-                    riwayat += [[gameID, game[idx][1], harga, userindex+1, date.today().year]]    # Mengupdate data riwayat
+                    kepemilikan += [[gameID, str(userindex+1)]]                                                 # Mengupdate data kepemilikan
+                    riwayat += [[gameID, game[idx][1], str(harga), str(userindex+1), str(date.today().year)]]   # Mengupdate data riwayat
+
+                    print('\n[green]Game "{}" berhasil dibeli!'.format(game[idx][1]))
             else:
                 print('\n[red]Stok game "{}" sedang habis!'.format(game[idx][1]))
         else:

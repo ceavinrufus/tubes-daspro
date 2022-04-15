@@ -8,6 +8,7 @@ from .list_game_toko import list_game_toko
 from .load import load
 from .login import login
 from .register import register
+from .riwayat import riwayat
 from .save import save
 from .search_game_at_store import search_game_at_store
 from .search_my_game import search_my_game

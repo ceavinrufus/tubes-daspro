@@ -171,7 +171,7 @@ def stripping(string, toRemove=" "):
     return new_str
 
 
-def search_by(element, by, arr):
+def search_by(element, column, arr):
     # Mencari elemen dalam sebuah array dalam sebuah matriks. Jika ditemukan, fungsi akan mereturn array di mana
     # elemen tersebut ditemukan. Jika tidak, fungsi mereturn array kosong. Jika elemen kosong fungsi akan mereturn array
     # kosong
@@ -185,7 +185,7 @@ def search_by(element, by, arr):
         return arr
     else:
         for i in range(panjang(arr)):
-            if element == arr[i][by]:   # Jika elemen ditemukan, array terkait akan diitambahkan ke dalam variabel found
+            if element == arr[i][column]:   # Jika elemen ditemukan, array terkait akan diitambahkan ke dalam variabel found
                 found += [arr[i]]
 
     return found
