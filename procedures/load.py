@@ -43,6 +43,7 @@ def load_file(data, filename, args):
     # Membaca data mentah dan memasukkan ke dalam list
     for row in f:
         data += [splitting(row)]
+    f.close()
 
     return
 

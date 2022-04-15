@@ -31,6 +31,7 @@ def save_file(data, filename, savedir):
 
     for row in data:  # Menuliskan tiap baris pada array ke dalam file
         f.writelines(joining(row) + "\n")
+    f.close()
 
     return
 
