@@ -3,20 +3,6 @@ from rich import print
 from functions.arraytools import *
 
 
-def extract_integer(string):
-    # Mengambil elemen bilangan dari string dengan format GAMEXXX
-
-    # KAMUS LOKAL
-    # ratusan, puluhan, satuan : integer
-
-    # ALGORITMA
-    ratusan = int(string[-3]) * 100
-    puluhan = int(string[-2]) * 10
-    satuan = int(string[-1])
-
-    return ratusan + puluhan + satuan
-
-
 def tambah_game(game):
     # I.S. Matriks game terdefinisi
     # F.S. Array game ditambahkan dengan data baru berupa array
@@ -40,15 +26,15 @@ def tambah_game(game):
         new[4] = stripping(input("Masukkan harga: "))
         new[5] = stripping(input("Masukkan stok awal: "))
 
-    if panjang(game) > 0:
-        last_gameid = extract_integer(game[-1][0])
-    else:
+    if panjang(game) > 0:                                   # Memastikan apakah array game ada isinya
+        last_gameid = extract_integer(game[-1][0])          # Menyimpan nilai game ID elemen game terakhir
+    else:  # panjang(game) <= 0
         last_gameid = 0
 
     new = ['','','','','','']               # Inisialisasi array new
 
     input_game()
-    while is_subset([''], new):
+    while is_subset([''], new):             # Looping terus berjalan hingga semua input terisi
         os.system("cls")
         print("\n[red]Mohon masukkan semua informasi mengenai game agar dapat disimpan BNMO.")
         input_game()
