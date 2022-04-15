@@ -5,6 +5,12 @@ from rich.console import Console
 from rich.markdown import Markdown
 from functions.arraytools import popped
 
+# PROGRAM BNMO
+# SPESIFIKASI: Program yang mensimulasikan cara kerja BNMO sesuai spesifikasi pada
+#              https://docs.google.com/document/d/1mqODeKIMLjvRmoUb_XQPK7pOifJb-rma83bMuqE9C1s/edit
+#              User Interface pada terminal dihias dengan menggunakan module rich. Agar bisa berjalan dengan optimal,
+#              gunakan Windows Terminal
+
 # KAMUS
 # idx : integer
 # commands, user, game, history, kepemilikan, header : array
@@ -21,6 +27,7 @@ load(user, game, history, kepemilikan)                      # Load file ke dalam
 
 header = [user[0], game[0], history[0], kepemilikan[0]]
 
+# Menghilangkan header pada array
 user = popped(user, 0)
 game = popped(game, 0)
 history = popped(history, 0)
@@ -29,8 +36,10 @@ kepemilikan = popped(kepemilikan, 0)
 while True:
     os.system("cls")
     Console().print(Markdown('''\n# Selamat datang di antarmuka "Binomo"'''))
+
     menu(commands, "guest")
     choose = input(">>> ")
+
     os.system("cls")
     if choose == "login":
         idx = login(user)     # Indeks user pada array. Jika tidak berhasil login, indeks user -999
