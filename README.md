@@ -10,3 +10,7 @@ K08-02
 - Rich works with OSX, Linux and Windows.
 - On Windows both the (ancient) cmd.exe terminal is supported and the new Windows Terminal. The latter has much improved support for color and style.
 - Rich requires Python 3.6.3 and above. Note that Python 3.6.0 is not supported due to lack of support for methods on NamedTuples.
+
+
+## Alert
+- Untuk pengguna windows disarankan memakai Windows Terminal karena ada beberapa styling tidak disupport pada terminal biasa 
