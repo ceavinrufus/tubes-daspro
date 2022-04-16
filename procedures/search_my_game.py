@@ -1,6 +1,6 @@
 import os
 from functions.arraytools import *
-from procedures import displaytable
+from interface import displaytable
 from procedures.list_game import search_user_game
 from rich import print
 

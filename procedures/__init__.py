@@ -1,7 +1,6 @@
 from .buy_game import buy_game
 from .exit import exit
 from .help import *
-from .interface import *
 from .kerangajaib import kerangajaib
 from .list_game import list_game
 from .list_game_toko import list_game_toko

@@ -1,6 +1,6 @@
 import os
 from functions.arraytools import joining
-from procedures.interface import saving_animation
+from interface import saving_animation
 
 
 def save_file(data, filename, savedir):

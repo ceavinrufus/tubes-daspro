@@ -1,4 +1,5 @@
 from functions.tictactools import *
+from rich import print
 
 
 def tictactoe():

@@ -1,6 +1,6 @@
 import os
 from functions.arraytools import *
-from procedures import displaytable
+from interface import displaytable
 from rich import print
 
 
@@ -43,3 +43,5 @@ def list_game(kepemilikan, game, userindex):
 
     os.system("cls")
     displaytable(header, result, title=title)               # Menampilkan tabel
+
+    return

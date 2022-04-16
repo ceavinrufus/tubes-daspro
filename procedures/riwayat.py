@@ -1,5 +1,5 @@
 from rich import print
-from procedures.interface import displaytable
+from interface import displaytable
 from functions.arraytools import *
 
 

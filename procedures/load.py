@@ -2,7 +2,7 @@ import argparse
 import os
 import sys
 from functions.arraytools import *
-from procedures import loading_animation
+from interface import loading_animation
 
 
 def dir_path(folder):

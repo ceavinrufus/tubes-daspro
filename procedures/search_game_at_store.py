@@ -1,6 +1,6 @@
 import os
 from functions.arraytools import *
-from procedures.interface import displaytable
+from interface import displaytable
 from rich import print
 
 

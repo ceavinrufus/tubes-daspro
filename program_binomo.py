@@ -1,7 +1,7 @@
 import os
+import interface
 from procedures import *
 from rich import print
-from rich.console import Console
 from rich.markdown import Markdown
 from functions.arraytools import popped
 
@@ -33,21 +33,23 @@ game = popped(game, 0)
 history = popped(history, 0)
 kepemilikan = popped(kepemilikan, 0)
 
-while True:
+while True:                             # Looping selagi belum login
     os.system("cls")
-    Console().print(Markdown('''\n# Selamat datang di antarmuka "Binomo"'''))
 
-    menu(commands, "guest")
+    print(Markdown('''\n# Selamat datang di antarmuka "Binomo"'''))
+    interface.gambar_BNMO()
+
+    interface.menu(commands, "guest")
     choose = input(">>> ")
 
     os.system("cls")
     if choose == "login":
         idx = login(user)     # Indeks user pada array. Jika tidak berhasil login, indeks user -999
 
-        while idx >= 0:
+        while idx >= 0:                 # Looping selagi masih logged in
             os.system("cls")
             print('\nHalo [blue]{}[/blue]!'.format(user[idx][2]))
-            menu(commands, user[idx][4])
+            interface.menu(commands, user[idx][4])
 
             choose = input(">>> ")
             if choose in commands:

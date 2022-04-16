@@ -2,6 +2,7 @@ from functions.arraytools import *
 from functions.formulas import absolute as abso
 from rich import print
 
+
 def ubah_stok(game):
     # I.S. Array game sudah terdefinisi
     # F.S. Stok ditambah/dikurang sesuai masukan admin
