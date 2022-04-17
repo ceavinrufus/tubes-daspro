@@ -56,6 +56,16 @@ def menu(commands, role):
     return
 
 
+def sorting_menu():
+    print('\n1. "harga+" untuk sorting menaik berdasarkan harga')
+    print('2. "harga-" untuk sorting menurun berdasarkan harga')
+    print('3. "tahun+" untuk sorting menaik berdasarkan tahun')
+    print('4. "tahun-" untuk sorting menurun berdasarkan tahun')
+    print('5. "" untuk sorting menaik berdasarkan ID game')
+
+    return
+
+
 def loading_animation(filename):
     # I.S. nama file yang ingin diload ada
     # F.S. Menampilkan animasi loading dan nama file yang sedang diload

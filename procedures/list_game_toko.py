@@ -1,5 +1,5 @@
 from functions.arraytools import *
-from interface import displaytable
+from interface import displaytable, sorting_menu
 from rich import print
 
 
@@ -11,6 +11,7 @@ def list_game_toko(game):
 
     # ALGORITMA
     if panjang(game) > 0:
+        sorting_menu()
         skema = input("\nSkema sorting: ")
 
         # Sorting sesuai skema sorting yang diinput
