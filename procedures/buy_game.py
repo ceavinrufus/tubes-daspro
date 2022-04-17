@@ -14,7 +14,7 @@ def buy_game(userindex, user, game, riwayat, kepemilikan):
 
     # ALGORITMA
     gameID = input("\nMasukkan ID Game: ").upper()
-    idx = find_index_matriks(gameID, game, 0)   # Indeks user pada array. Jika tidak berhasil login, indeks user -999
+    idx = find_index_matriks(gameID, game, 0)   # Indeks game pada array. Jika tidak ditemukan, indeks game -999
 
     if idx >= 0:
         stok = int(game[idx][5])

@@ -3,7 +3,7 @@ import interface
 from procedures import *
 from rich import print
 from rich.markdown import Markdown
-from functions.arraytools import popped
+from functions.arraytools import popped, find_index_array
 
 # PROGRAM BNMO
 # SPESIFIKASI: Program yang mensimulasikan cara kerja BNMO sesuai spesifikasi pada
@@ -52,7 +52,7 @@ while True:                             # Looping selagi belum login
             interface.menu(commands, user[idx][4])
 
             choose = input(">>> ")
-            if choose in commands:
+            if find_index_array(choose, commands) >= 0:
                 os.system("cls")
                 if user[idx][4] == "admin":             # Menu yang dapat dijalankan oleh admin
                     if choose == "login":

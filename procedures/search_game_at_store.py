@@ -14,7 +14,7 @@ def search_game_at_store(game):
     # title : string
 
     # ALGORITMA
-    if game:
+    if panjang(game) > 0:
         search = ['', '', '', '', '']                       # Array untuk menyimpan filter yang diinput pengguna
         search[0] = stripping(input("\nMasukkan ID game: ").upper())
         search[1] = stripping(input("Masukkan nama game: "))

@@ -10,7 +10,7 @@ def list_game_toko(game):
     # skema, sortby : string
 
     # ALGORITMA
-    if game:
+    if panjang(game) > 0:
         skema = input("\nSkema sorting: ")
 
         # Sorting sesuai skema sorting yang diinput
@@ -24,7 +24,7 @@ def list_game_toko(game):
             result = selection_sorted(game, 3, ascending=False)
         elif not skema:
             for i in range(panjang(game)):
-                game[i] += [extract_integer(game[i][0])]        # Menambahkan game ID dalam bentuk integer pada array
+                game[i] += [str(extract_integer(game[i][0]))]        # Menambahkan game ID dalam bentuk integer pada array
 
             result = []
             for arr in selection_sorted(game, 6):           # Sorting naik berdasarkan game ID

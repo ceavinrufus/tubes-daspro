@@ -15,7 +15,7 @@ def search_my_game(kepemilikan, game, userindex):
     # title : string
 
     # ALGORITMA
-    if game:
+    if panjang(game) > 0:
         search = ['', '', '', '', '']                   # Array untuk menyimpan filter yang diinput pengguna
         search[0] = stripping(input("\nMasukkan ID game: ").upper())
         search[3] = stripping(input("Masukkan tahun rilis game: "))

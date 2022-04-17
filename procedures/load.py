@@ -22,7 +22,7 @@ def dir_path(folder):
         else:
             return path
     else:  # Jika argumen (nama folder) tidak ditemukan
-        sys.exit("Folder ”{}” tidak ditemukan.".format(folder))
+        sys.exit("Folder ”{}” tidak ditemukan pada folder savedata.".format(folder))
 
 
 def load_file(data, filename, args):

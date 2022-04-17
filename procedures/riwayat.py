@@ -13,7 +13,7 @@ def riwayat(userindex, history):
     # title : string
 
     # ALGORITMA
-    if history:
+    if panjang(history) > 0:
         userhistory = search_by(str(userindex + 1), 3, history)  # Mencari daftar riwayat yang dimiliki user pada array riwayat
 
         found = []
