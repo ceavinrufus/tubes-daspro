@@ -24,12 +24,12 @@ def search_game_at_store(game):
 
         result = game
         for by in range(panjang(search)):                   # Looping array search untuk memfilter array game
-            result = search_by(search[by], by, result)      # Hasil filtering disimpan pada array result
+            result = filtering(search[by], by, result)      # Hasil filtering disimpan pada array result
 
         title = "Daftar Game pada Toko yang Memenuhi Kriteria"
         header = ["GAME ID", "NAMA", "KATEGORI", "TAHUN RILIS", "HARGA", "STOK"]
 
-        if not result:
+        if panjang(result) == 0:
             print("\n{}".format(title))
             print("[red]Tidak ada game pada toko yang memenuhi kriteria.")
             return

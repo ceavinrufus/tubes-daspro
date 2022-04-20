@@ -12,11 +12,11 @@ def search_user_game(kepemilikan, game, userindex):
     # temp : array
 
     # ALGORITMA
-    usergame = search_by(str(userindex + 1), 1, kepemilikan)    # Mencari daftar game yang dimiliki user pada array kepemilikan
+    usergame = filtering(str(userindex + 1), 1, kepemilikan)    # Mencari daftar game yang dimiliki user pada array kepemilikan
 
     game_found = []
     for gameid in usergame:                                     # Array yang akan berisi data game yang dimiliki user
-        temp = search_by(gameid[0], 0, game)[0]                 # Pencarian data game berdasarkan ID game
+        temp = filtering(gameid[0], 0, game)[0]                 # Pencarian data game berdasarkan ID game
         game_found += [popped(temp, -1)]                        # Menambahkan array data game (tanpa data stok)
 
     return game_found
@@ -37,7 +37,7 @@ def list_game(kepemilikan, game, userindex):
     title = "Daftar Game pada Inventori"
     header = ["GAME ID", "NAMA", "KATEGORI", "TAHUN RILIS", "HARGA"]
 
-    if not result:
+    if panjang(result) == 0:
         print("\n[red]Maaf, kamu belum membeli game. Ketik [bold]buy_game[/bold] untuk beli!")
         return
 

@@ -14,18 +14,18 @@ def riwayat(userindex, history):
 
     # ALGORITMA
     if panjang(history) > 0:
-        userhistory = search_by(str(userindex + 1), 3, history)  # Mencari daftar riwayat yang dimiliki user pada array riwayat
+        userhistory = filtering(str(userindex + 1), 3, history)  # Mencari daftar riwayat yang dimiliki user pada array riwayat
 
         found = []
         for historyid in userhistory:                          # Array yang akan berisi data riwayat yang dimiliki user
-            temp = search_by(historyid[0], 0, history)[0]      # Pencarian data riwayat berdasarkan game ID
+            temp = filtering(historyid[0], 0, history)[0]      # Pencarian data riwayat berdasarkan game ID
             found += [popped(temp, 3)]                         # Menambahkan array data history (tanpa data user_id)
 
         title = "Daftar Game"
         header = ["ID", "NAMA GAME", "HARGA", "TAHUN BELI"]
 
         displaytable(header, found, title=title)
-    else :
+    else:
         print("\n[red]Maaf, kamu tidak ada riwayat pembelian game. Ketik perintah [bold]beli_game[/bold] untuk membeli.")
 
     return

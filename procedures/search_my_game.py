@@ -23,12 +23,12 @@ def search_my_game(kepemilikan, game, userindex):
         result = search_user_game(kepemilikan, game, userindex)     # Hasil pencarian data game yang dimiliki user
 
         for by in range(panjang(search)):                       # Looping array search untuk memfilter array result
-            result = search_by(search[by], by, result)          # Hasil filtering terus diupdate selagi looping
+            result = filtering(search[by], by, result)          # Hasil filtering terus diupdate selagi looping
 
         title = "Daftar Game pada Inventori yang Memenuhi Kriteria"
         header = ["GAME ID", "NAMA", "KATEGORI", "TAHUN RILIS", "HARGA"]
 
-        if not result:
+        if panjang(result) == 0:
             print("\n{}".format(title))
             print("[red]Tidak ada game pada inventorimu yang memenuhi kriteria.")
             return
