@@ -1,7 +1,7 @@
 import os
 import time
 import interface
-from functions.formulas import linear_congruential
+from functions.formulas import lcg
 from functions.arraytools import panjang
 
 
@@ -18,11 +18,11 @@ def kerangajaib():
     replies = ["hah", "gatau", "iyah", "hmm", "g"]  # List jawaban yang bisa dikeluarkan
 
     second = time.gmtime().tm_sec                   # Mengambil detik hari ini untuk dipakai sebagai seed
-    randomIndex = linear_congruential(panjang(replies), second)
+    randomIndex = lcg(panjang(replies), second)
 
     print("Apa pertanyaanmu?")
     input(">>> ")
 
-    interface.gambar_kerang("[green]{}[/green]".format(replies[randomIndex]))
+    interface.gambar_kerang('"{}"'.format(replies[randomIndex]))
 
     return

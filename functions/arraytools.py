@@ -22,8 +22,8 @@ def panjang(arr):
     return pjg
 
 
-def splitting(string, delimiter=";"):
-    # Memisahkan delimiter dari string
+def splitting(word, delimiter=";"):
+    # Memisahkan delimiter dari word
 
     # KAMUS LOKAL
     # temp : string
@@ -33,7 +33,7 @@ def splitting(string, delimiter=";"):
     temp = ""           # Variabel sementara untuk menampung anggota list
     data = []           # List untuk menampung data
 
-    for char in string:     # Looping setiap huruf yang ada pada string
+    for char in word:     # Looping setiap huruf yang ada pada word
         if char == "\n":
             data += [temp]
             temp = ""
@@ -43,7 +43,7 @@ def splitting(string, delimiter=";"):
         else:
             temp += char    # Menambahkan huruf ke dalam variabel sementara
     if temp:
-        data += [temp]      # Menambahkan sisa string ke dalam list data dalam bentuk integer
+        data += [temp]      # Menambahkan sisa word ke dalam list data dalam bentuk integer
 
     return data
 
@@ -54,13 +54,13 @@ def joining(arr, delimiter=";"):
     # KAMUS LOKAL
     # string : str
 
-    # Menambahkan string dan delimiter secara bergantian ke dalam string
-    string = str(arr[0])
+    # Menambahkan anggota array dan delimiter secara bergantian ke dalam word
+    word = str(arr[0])
     for i in range(1, panjang(arr)):
-        string += delimiter
-        string += str(arr[i])
+        word += delimiter
+        word += str(arr[i])
 
-    return string
+    return word
 
 
 def find_index_matriks(element, arr, idx):
@@ -117,8 +117,8 @@ def is_subset(arr1, arr2):
     return True
 
 
-def right_strip(string, toRemove=" "):
-    # Menghilangkan trailing character pada string sesuai argumen saat memanggil fungsi
+def right_strip(word, to_remove=" "):
+    # Menghilangkan trailing character pada word sesuai argumen saat memanggil fungsi
 
     # KAMUS LOKAL
     # new_str, temp : string
@@ -127,19 +127,19 @@ def right_strip(string, toRemove=" "):
     new_str = ""
     temp = ""
 
-    for char in string:
+    for char in word:
         temp += char
-        if char == toRemove:
+        if char == to_remove:
             continue
-        elif char != toRemove:              # Jika karakter-karakter awal bukan lagi yang ingin dihilangkan
-            new_str += temp                 # new_str diisi dengan string yang sudah ditampung pada temp
+        elif char != to_remove:              # Jika karakter-karakter awal bukan lagi yang ingin dihilangkan
+            new_str += temp                 # new_str diisi dengan word yang sudah ditampung pada temp
             temp = ""
 
     return new_str
 
 
-def left_strip(string, toRemove=" "):
-    # Menghilangkan leading character pada string sesuai argumen saat memanggil fungsi
+def left_strip(word, to_remove=" "):
+    # Menghilangkan leading character pada word sesuai argumen saat memanggil fungsi
 
     # KAMUS LOKAL
     # new_str : string
@@ -148,25 +148,25 @@ def left_strip(string, toRemove=" "):
     # ALGORITMA
     new_str = ""
     temp = 0            # Variabel untuk menyimpan indeks pertama kali karakter bukan lagi yang ingin dihilangkan
-    for i in range(panjang(string)):
-        if string[i] == toRemove:
+    for i in range(panjang(word)):
+        if word[i] == to_remove:
             temp = i+1
         else:
             break           # Loop berhenti jika karakter-karakter awal bukan spasi
 
-    for char in range(temp, panjang(string)):   # Looping hanya dimulai dari indeks setelah karakter yang ingin dihilangkan
-        new_str += string[char]
+    for char in range(temp, panjang(word)):  # Looping hanya dimulai dari indeks setelah karakter yang ingin dihilangkan
+        new_str += word[char]
 
     return new_str
 
 
-def stripping(string, toRemove=" "):
-    # Menghilangkan leading dan trailing character pada string sesuai argumen saat memanggil fungsi
+def stripping(word, toRemove=" "):
+    # Menghilangkan leading dan trailing character pada word sesuai argumen saat memanggil fungsi
 
     # KAMUS LOKAL
 
     # ALGORITMA
-    new_str = left_strip(right_strip(string, toRemove), toRemove)
+    new_str = left_strip(right_strip(word, toRemove), toRemove)
 
     return new_str
 
@@ -239,15 +239,15 @@ def selection_sorted(matrix, by, ascending=True):
     return sorted_matrix
 
 
-def extract_integer(string):
-    # Mengambil elemen bilangan dari string dengan format "<string>XXX"
+def extract_integer(word):
+    # Mengambil elemen bilangan dari word dengan format "<word>XXX"
 
     # KAMUS LOKAL
     # ratusan, puluhan, satuan : integer
 
     # ALGORITMA
-    ratusan = int(string[-3]) * 100
-    puluhan = int(string[-2]) * 10
-    satuan = int(string[-1])
+    ratusan = int(word[-3]) * 100
+    puluhan = int(word[-2]) * 10
+    satuan = int(word[-1])
 
     return ratusan + puluhan + satuan

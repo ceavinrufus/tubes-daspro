@@ -18,8 +18,8 @@ from functions.arraytools import popped, find_index_array
 
 # ALGORITMA
 commands = ["login", "register", "tambah_game", "ubah_game", "ubah_stok", "list_game_toko",
-            "buy_game", "list_game", "search_my_game", "search_game_at_store",
-            "topup", "riwayat", "help", "save", "kerangajaib", "tictactoe", "exit"]
+            "buy_game", "list_game", "search_my_game", "search_game_at_store", "topup",
+            "riwayat", "help", "save", "kerangajaib", "tictactoe", "logout", "exit"]
 
 user = [] ; game = [] ; history = [] ; kepemilikan = []     # Inisiasi array
 
@@ -75,6 +75,8 @@ while True:                             # Looping selagi belum login
                         help_admin()
                     elif choose == "save":
                         save(header, user, game, history, kepemilikan)
+                    elif choose == "logout":
+                        break
                     elif choose == "exit":
                         exit(header, user, game, history, kepemilikan)
                     else:
@@ -102,6 +104,8 @@ while True:                             # Looping selagi belum login
                         help_user()
                     elif choose == "save":
                         save(header, user, game, history, kepemilikan)
+                    elif choose == "logout":
+                        break
                     elif choose == "exit":
                         exit(header, user, game, history, kepemilikan)
                     else:

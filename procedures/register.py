@@ -3,9 +3,6 @@ from functions.arraytools import *
 from functions.cipher import encrypt
 from rich import print
 
-allowed_uname = alphanumeric + ['_', '-']
-allowed_password = alphanumeric + specialchar
-
 
 def register(user):
     # I.S. Array user terdefinisi
@@ -14,8 +11,12 @@ def register(user):
     # KAMUS LOKAL
     # nama, username, password : string
     # idx : integer
+    # allowed_uname, allowed_password : array of character
 
     # ALGORITMA
+    allowed_uname = alphanumeric + ['_', '-']
+    allowed_password = alphanumeric + specialchar
+
     nama = input("\nMasukkan nama: ")
     os.system("cls")
     while True:

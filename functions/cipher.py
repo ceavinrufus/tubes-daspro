@@ -1,38 +1,44 @@
 from functions.formulas import *
 from functions.arraytools import *
 
-cipherable = alphanumeric + specialchar
 
-def encrypt(string):
-    # Mengenkripsi string dengan affine cipher
+def encrypt(word):
+    # Mengenkripsi string dengan metode affine cipher
 
     # KAMUS LOKAL
     # encrypted : string
+    # cipherable : array of character
+    # index : integer
 
     # ALGORITMA
-    encrypted = str(linear_congruential(panjang(cipherable), find_index_array(string[0], cipherable)))       # Inisialisasi variabel
+    cipherable = alphanumeric + specialchar
+
+    encrypted = ""
 
     # Menambahkan hasil enkripsi tiap elemen satu per satu
-    for i in range(1, panjang(string)):
-        encrypted += ","
-        encrypted += str(linear_congruential(panjang(cipherable), find_index_array(string[i], cipherable)))
+    for i in range(panjang(word)):
+        index = lcg(panjang(cipherable), find_index_array(word[i], cipherable))     # Index karakter acak
+        encrypted += cipherable[index]
 
     return encrypted
 
 
-def decrypt(string):
-    # Mendekripsi string dengan affine cipher
+def decrypt(word):
+    # Mendekripsi string dengan metode affine cipher
 
     # KAMUS LOKAL
     # decrypted : string
+    # cipherable : array of character
+    # index : integer
 
     # ALGORITMA
-    arr = splitting(string, delimiter=",")      # Memisahkan delimiter dari string
-    decrypted = ""                              # Inisiasi variabel
+    cipherable = alphanumeric + specialchar
+
+    decrypted = ""
 
     # Menambahkan hasil dekripsi tiap elemen satu per satu
-    for i in arr:
-        index = inverse_linear_congruential(panjang(cipherable), int(i))
-        decrypted += cipherable[index]
+    for i in range(panjang(word)):
+        index = inverse_lcg(panjang(cipherable), find_index_array(word[i], cipherable))     # Index karakter acak
+        decrypted += str(cipherable[index])
 
     return decrypted
