@@ -25,19 +25,18 @@ def dir_path(folder):
         sys.exit("Folder ”{}” tidak ditemukan pada folder savedata.".format(folder))
 
 
-def load_file(data, filename, args):
+def load_file(data, filename, folder):
     # I.S. data dan filename (nama file yang ingin dibuka) sudah terdefinisi
     # F.S. Data dari file dimasukkan ke dalam array data
 
     # KAMUS LOKAL
-    # data : array
     # directory : string
     # f : TextIOWrapper
 
     # ALGORITMA
     loading_animation(filename)
 
-    directory = os.path.join(args.folder, filename)  # Direktori file yang ingin dibuka
+    directory = os.path.join(folder, filename)  # Direktori file yang ingin dibuka
     f = open(directory, 'r')  # Membuka file yang ingin dibuka
 
     # Membaca data mentah dan memasukkan ke dalam list
@@ -57,6 +56,7 @@ def load(user, game, riwayat, kepemilikan):
 
     # KAMUS LOKAL
     # parser : ArgumentParser
+    # foldername : string
 
     # ALGORTIMA
     print()
@@ -64,12 +64,12 @@ def load(user, game, riwayat, kepemilikan):
     # Membaca argumen saat menjalankan file
     parser = argparse.ArgumentParser()
     parser.add_argument("folder", nargs="?", type=dir_path, help='Input folder name', default=' ')
-    args = parser.parse_args()
+    foldername = parser.parse_args().folder
 
     # Load file user, game, riwayat, kepemilikan ke dalam array masing-masing
-    load_file(user, "user.csv", args)
-    load_file(game, "game.csv", args)
-    load_file(riwayat, "riwayat.csv", args)
-    load_file(kepemilikan, "kepemilikan.csv", args)
+    load_file(user, "user.csv", foldername)
+    load_file(game, "game.csv", foldername)
+    load_file(riwayat, "riwayat.csv", foldername)
+    load_file(kepemilikan, "kepemilikan.csv", foldername)
 
     return

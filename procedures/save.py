@@ -1,5 +1,5 @@
 import os
-from functions.arraytools import joining
+from functions.arraytools import *
 from interface import saving_animation
 
 
@@ -20,7 +20,7 @@ def save_file(data, filename, savedir):
 
     # Mengecek apakah folder save yang dipilih user sudah ada
     for dirs, subdirs, files in os.walk(os.path.join(thisdir, "savedata")):
-        if savedir in subdirs:
+        if is_subset([savedir], subdirs):
             ada = True
             break
 
@@ -32,6 +32,7 @@ def save_file(data, filename, savedir):
 
     for row in data:  # Menuliskan tiap baris pada array ke dalam file
         f.writelines(joining(row) + "\n")
+
     f.close()
 
     return
