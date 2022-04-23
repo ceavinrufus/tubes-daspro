@@ -41,8 +41,11 @@ def load_file(data, filename, args):
     f = open(directory, 'r')  # Membuka file yang ingin dibuka
 
     # Membaca data mentah dan memasukkan ke dalam list
-    for row in f:
-        data += [splitting(row)]
+    lines = f.readlines()
+
+    for line in lines:
+        data += [splitting(line)]
+
     f.close()
 
     return
