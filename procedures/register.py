@@ -1,6 +1,6 @@
 import os
 from functions.arraytools import *
-from functions.cipher import encrypt
+from functions.cipher import cipher
 from rich import print
 
 
@@ -49,7 +49,7 @@ def register(user):
     if idx >= 0:
         print("Username [red]{}[/red] sudah terpakai, silakan menggunakan username lain.".format(username))
     else: # Jika username tidak ada pada database, akun berhasil dibuat
-        user += [[panjang(user)+1, username, nama, encrypt(password), "user", 0]]
+        user += [[panjang(user) + 1, username, nama, cipher(password), "user", 0]]
         print('Username [red]{}[/red] telah berhasil register ke dalam "Binomo".'.format(username))
 
     return

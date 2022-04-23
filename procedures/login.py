@@ -1,5 +1,5 @@
 from functions.arraytools import *
-from functions.cipher import decrypt
+from functions.cipher import cipher
 from rich import print
 
 
@@ -17,8 +17,8 @@ def login(user):
 
     idx = find_index_matriks(username, user, 1)      # Indeks username yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
 
-    if idx >= 0 and decrypt(user[idx][3]) == password:                    # Mengecek apakah password user benar
+    if idx >= 0 and cipher(user[idx][3], encrypt=False) == password:                    # Mengecek apakah password user benar
         return idx
     else:
-        print("Password atau username salah atau tidak ditemukan.")
+        print("[red]Password atau username salah atau tidak ditemukan.")
         return -999
