@@ -13,7 +13,7 @@
 ## How to use
 - Pada terminal cd ke tempat program_binomo.py berada
 - Memanggil module harus disertai dengan nama folder tempat csv yang ingin diload
-- Format memanggil module: python program_binomo.py <nama folder>
+- Format memanggil module: python program_binomo.py "nama folder"
 
 ## Alert
 - Untuk pengguna windows disarankan memakai Windows Terminal karena ada beberapa styling tidak disupport pada terminal biasa 
