@@ -23,7 +23,7 @@ def register(user):
         print("\nMasukkan nama:", nama)
         username = stripping(input("Masukkan username: "))
         os.system("cls")
-        if not username:
+        if panjang(username) == 0:
             print("[red]Username tidak boleh kosong!")
         else:
             if is_subset(username, allowed_uname):                # Looping berhenti jika username sudah valid
@@ -36,7 +36,7 @@ def register(user):
         print("Masukkan username:", username)
         password = stripping(input("Masukkan password: "))
         os.system("cls")
-        if not password:
+        if panjang(password) == 0:
             print("[red]Password tidak boleh kosong!")
         else:
             if is_subset(password, allowed_password):                # Looping berhenti jika password sudah valid

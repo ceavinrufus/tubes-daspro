@@ -1,5 +1,5 @@
 from rich import print
-from functions.arraytools import find_index_matriks, update_data
+from functions.arraytools import *
 
 
 def ubah_game(game):
@@ -7,22 +7,26 @@ def ubah_game(game):
     # F.S. Data pada game ada/tidak ada yang diubah
 
     # KAMUS LOKAL
-    # gameID, nama_game, kategori, tahun_rilis, harga : string
+    # gameID, nama, kategori, tahun, harga : string
     # indeks : integer
 
     # ALGORITMA
-    gameID = input("\nMasukkan ID game: ").upper()
-    indeks = find_index_matriks(gameID, game, 0)      # Indeks game pada array. Jika tidak ditemukan, indeksnya -999
+    gameID = input("\nMasukkan ID game: ")
+    indeks = find_index_matriks(gameID.upper(), game, 0)      # Indeks game pada array. Jika tidak ditemukan, indeksnya -999
 
     if indeks >= 0:
         # Mengubah data pada array game sesuai input
-        game[indeks][1] = update_data(input("Masukkan nama game: "), game[indeks][1])
-        game[indeks][2] = update_data(input("Masukkan kategori: "), game[indeks][2])
-        game[indeks][3] = update_data(input("Masukkan tahun rilis: "), game[indeks][3])
-        game[indeks][4] = update_data(input("Masukkan harga: "), game[indeks][4])
+        nama = update_data(stripping(input("Masukkan nama game: ")), game[indeks][1])
+        kategori = update_data(stripping(input("Masukkan kategori: ")), game[indeks][2])
+        tahun = update_data(stripping(input("Masukkan tahun rilis: ")), game[indeks][3])
+        harga = update_data(stripping(input("Masukkan harga: ")), game[indeks][4])
 
-        print("\n[green]Data berhasil diubah!")
+        if is_subset(tahun+harga, numeric):
+            game[indeks] = [game[indeks][0], nama, kategori, tahun, harga, game[indeks][5]]
+            print("\n[green]Data berhasil diubah!")
+        else:
+            print("\n[red]Data tidak valid.")
     else:  # indeks < 0
-        print("[red]ID game tidak valid.")
+        print('[red]Tidak ada game dengan ID "{}".'.format(gameID))
 
     return

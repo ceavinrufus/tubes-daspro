@@ -24,12 +24,13 @@ def list_game_toko(game):
         elif skema == "tahun-":
             result = selection_sorted(game, 3, ascending=False)
         elif not skema:
-            for i in range(panjang(game)):
-                game[i] += [str(extract_integer(game[i][0]))]        # Menambahkan game ID dalam bentuk integer pada array
-
             result = []
-            for arr in selection_sorted(game, 6):           # Sorting naik berdasarkan game ID
-                result += [popped(arr, -1)]                 # Menghilangkan kembali game ID yang baru ditambahkan
+            for i in range(panjang(game)):
+                result += [game[i] + [extract_integer(game[i][0])]]    # Menambahkan game ID dalam bentuk integer pada array
+            result = selection_sorted(result, 6)                       # Sorting naik berdasarkan game ID
+
+            for i in range(panjang(result)):
+                result[i] = popped(result[i], -1)                 # Menghilangkan kembali game ID yang baru ditambahkan
         else:
             print("[red]Skema sorting tidak valid!")
             return

@@ -12,14 +12,14 @@ def ubah_stok(game):
     # jumlah, stok : integer
 
     # ALGORITMA
-    gameid = input("\nMasukkan ID game: ").upper()
+    gameid = input("\nMasukkan ID game: ")
     try:
         jumlah = int(input("Masukkan jumlah: "))
     except ValueError:
-        print("[red]Jumlah stok harus berupa angka!")
+        print("\n[red]Jumlah stok harus berupa angka!")
         return
 
-    idx = find_index_matriks(gameid, game, 0)      # Indeks ID game yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
+    idx = find_index_matriks(gameid.upper(), game, 0)      # Indeks ID game yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
 
     if idx >= 0:
         stok = int(game[idx][5]) + jumlah                   # Nilai stok setelah diubah
@@ -36,6 +36,6 @@ def ubah_stok(game):
             print("\n[green]Stok game {} berhasil ditambahkan.".format(game[idx][1]))
             print("Stok sekarang: {}".format(stok))
     else:  # idx < 0
-        print("\n[red]Tidak ada game dengan ID {}!".format(gameid))
+        print('\n[red]Tidak ada game dengan ID "{}".'.format(gameid))
 
     return

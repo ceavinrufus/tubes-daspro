@@ -15,7 +15,7 @@ def topup(user):
     try:
         jumlah = int(input("Masukkan saldo: "))
     except ValueError:
-        print("[red]Saldo harus berupa angka!")
+        print("\n[red]Saldo harus berupa angka!")
         return
 
     idx = find_index_matriks(username, user, 1)   # Indeks username yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
@@ -24,14 +24,14 @@ def topup(user):
         saldo = int(user[idx][5]) + jumlah              # Nilai saldo setelah diubah
         if jumlah < 0:
             if saldo >= 0:                              # Jika saldo mencukupi, saldo diubah
-                user[idx][5] = jumlah
-                print("Top up berhasil. Saldo", user[idx][2], "berkurang menjadi", saldo)
+                user[idx][5] = saldo
+                print("\n[green]Saldo {} berkurang menjadi[/green] {}".format(user[idx][2], saldo))
             else:  # saldo < 0
-                print("Masukan tidak valid.")
+                print("\n[red]Masukan tidak valid.")
         else: # jumlah >= 0
-            user[idx][5] = jumlah                       # Mengubah stok pada array
-            print("Top up berhasil. Saldo", user[idx][2], "bertambah menjadi", saldo)
+            user[idx][5] = saldo                       # Mengubah stok pada array
+            print("\n[green]Top up berhasil. Saldo {} bertambah menjadi[/green] {}".format(user[idx][2], saldo))
     else:  # idx < 0
-        print('Username "{}" tidak ditemukan.'.format(username))
+        print('\n[red]Username "{}" tidak ditemukan.'.format(username))
 
     return

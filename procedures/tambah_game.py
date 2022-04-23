@@ -34,9 +34,9 @@ def tambah_game(game):
     new = ['','','','','','']               # Inisialisasi array new
 
     input_game()
-    while is_subset([''], new):             # Looping terus berjalan hingga semua input terisi
+    while is_subset([''], new) or not is_subset(new[3] + new[4] + new[5], numeric):             # Looping terus berjalan hingga semua input terisi
         os.system("cls")
-        print("\n[red]Mohon masukkan semua informasi mengenai game agar dapat disimpan BNMO.")
+        print("\n[red]Mohon masukkan semua informasi mengenai game dengan valid!")
         input_game()
 
     game += [new]           # Menambahkan array new ke dalam game
