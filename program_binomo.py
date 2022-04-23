@@ -13,7 +13,8 @@ from functions.arraytools import popped, find_index_array
 
 # KAMUS
 # idx : integer
-# commands, user, game, history, kepemilikan, header : array
+# commands, user, game, history, kepemilikan : array of array of string
+# header : array of string
 # choose : string
 
 # ALGORITMA

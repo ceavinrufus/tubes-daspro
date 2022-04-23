@@ -252,3 +252,22 @@ def extract_integer(word):
     satuan = int(word[-1])
 
     return ratusan + puluhan + satuan
+
+
+def uname_valid(username):
+    allowed_uname = alphanumeric + ['_', '-']
+
+    if is_subset(username, allowed_uname):          # Jika username masih belum valid, ditampilkan pesan error
+        return True
+    return False
+
+
+def is_numeric(word):
+    if panjang(word) != 0:
+        if word[0] == "-":
+            if is_subset(popped(word, 0), numeric):
+                return True
+        else:
+            if is_subset(word, numeric):
+                return True
+    return False

@@ -1,4 +1,4 @@
-from functions.arraytools import find_index_matriks
+from functions.arraytools import *
 from rich import print
 
 
@@ -12,15 +12,20 @@ def topup(user):
 
     # ALGORITMA
     username = input("\nMasukan username: ")
-    try:
-        jumlah = int(input("Masukkan saldo: "))
-    except ValueError:
-        print("\n[red]Saldo harus berupa angka!")
+    if not uname_valid(username):
+        print("[red]Username hanya dapat mengandung alfabet (A-Z, a-z), underscore (_), strip (-), dan angka (0-9)!")
         return
 
     idx = find_index_matriks(username, user, 1)   # Indeks username yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
 
     if idx >= 0:
+        jumlah = input("Masukkan saldo: ")
+        if not is_numeric(jumlah):
+            print("\n[red]Saldo harus berupa angka!")
+            return
+        else:
+            jumlah = int(jumlah)
+
         saldo = int(user[idx][5]) + jumlah              # Nilai saldo setelah diubah
         if jumlah < 0:
             if saldo >= 0:                              # Jika saldo mencukupi, saldo diubah

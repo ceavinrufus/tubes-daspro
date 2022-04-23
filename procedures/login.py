@@ -13,6 +13,10 @@ def login(user):
 
     # ALGORITMA
     username = stripping(input("\nMasukan username: "))
+    if not uname_valid(username):
+        print("[red]Username hanya dapat mengandung alfabet (A-Z, a-z), underscore (_), strip (-), dan angka (0-9)!")
+        return -999
+
     password = stripping(input("Masukan password: "))
 
     idx = find_index_matriks(username, user, 1)      # Indeks username yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
