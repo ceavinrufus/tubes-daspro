@@ -51,7 +51,7 @@ def save(header, user, game, riwayat, kepemilikan):
 
     while panjang(savedir) <= 0:
         os.system("cls")
-        print("\n[red]Nama file tidak boleh kosong!")
+        print("\n[red]Nama folder tidak boleh kosong!")
         savedir = input("\nMasukkan nama folder penyimpanan: ")
 
     print()
