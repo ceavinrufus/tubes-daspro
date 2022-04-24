@@ -8,8 +8,8 @@ def riwayat(userindex, history):
     # F.S. Menampilkan tabel riwayat user
 
     # KAMUS LOKAL
-    # userhistory, found : array of array
-    # temp, header : array
+    # userhistory : array of array of string
+    # temp, header, found : array
     # title : string
 
     # ALGORITMA
@@ -24,7 +24,7 @@ def riwayat(userindex, history):
         title = "Daftar Game"
         header = ["ID", "NAMA GAME", "HARGA", "TAHUN BELI"]
 
-        displaytable(header, found, title=title)
+        displaytable(header, found, title)
     else:
         print("\n[red]Maaf, kamu tidak ada riwayat pembelian game. Ketik perintah [bold]beli_game[/bold] untuk membeli.")
 

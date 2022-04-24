@@ -8,7 +8,7 @@ def topup(user):
 
     # KAMUS LOKAL
     # username : string
-    # jumlah, saldo : integer
+    # jumlah, saldo, idx : integer
 
     # ALGORITMA
     username = input("\nMasukan username: ")

@@ -1,5 +1,5 @@
 from functions.arraytools import *
-from interface import displaytable, sorting_menu
+from interface import displaytable
 from rich import print
 
 
@@ -11,8 +11,13 @@ def list_game_toko(game):
 
     # ALGORITMA
     if panjang(game) > 0:
-        sorting_menu()
-        skema = input("\nSkema sorting: ")
+        print('\n1. "harga+" untuk sorting menaik berdasarkan harga')
+        print('2. "harga-" untuk sorting menurun berdasarkan harga')
+        print('3. "tahun+" untuk sorting menaik berdasarkan tahun')
+        print('4. "tahun-" untuk sorting menurun berdasarkan tahun')
+        print('5. "" untuk sorting menaik berdasarkan ID game')
+
+        skema = stripping(input("\nSkema sorting: "))
 
         # Sorting sesuai skema sorting yang diinput
         if skema == "harga+":
@@ -23,7 +28,7 @@ def list_game_toko(game):
             result = selection_sorted(game, 3)
         elif skema == "tahun-":
             result = selection_sorted(game, 3, ascending=False)
-        elif not skema:
+        elif skema == "":
             result = []
             for i in range(panjang(game)):
                 result += [game[i] + [extract_integer(game[i][0])]]    # Menambahkan game ID dalam bentuk integer pada array

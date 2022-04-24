@@ -16,6 +16,7 @@ from functions.arraytools import *
 # commands, user, game, history, kepemilikan : array of array of string
 # header : array of string
 # choose : string
+# logged_on : boolean
 
 # ALGORITMA
 commands = ["login", "register", "tambah_game", "ubah_game", "ubah_stok", "list_game_toko",
