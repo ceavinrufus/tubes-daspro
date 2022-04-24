@@ -11,15 +11,12 @@ def exit(header, user, game, riwayat, kepemilikan):
     # ans : string
 
     # ALGORITMA
-    print("\nApakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)", end=" ")
 
     while True:
-        ans = input()
-        if ans.upper() != "Y" and ans.upper() != "N":
+        ans = input("\nApakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n) ")
+        if ans.upper() == "N" or ans.upper() == "Y":
             os.system("cls")
-            print("\nApakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)", end=" ")
-        else:
             if ans.upper() == "Y":
                 save(header, user, game, riwayat, kepemilikan)
-            os.system("cls")
             sys.exit()
+        os.system("cls")

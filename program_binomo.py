@@ -3,7 +3,7 @@ import interface
 from procedures import *
 from rich import print
 from rich.markdown import Markdown
-from functions.arraytools import popped, find_index_array
+from functions.arraytools import *
 
 # PROGRAM BNMO
 # SPESIFIKASI: Program yang mensimulasikan cara kerja BNMO sesuai spesifikasi pada
@@ -41,7 +41,7 @@ while True:                             # Looping selagi belum login
     interface.gambar_BNMO()
 
     interface.menu(commands, "guest")
-    choose = input(">>> ")
+    choose = stripping(input(">>> "))
 
     os.system("cls")
     if choose == "login":
@@ -52,7 +52,7 @@ while True:                             # Looping selagi belum login
             print('\nHalo [blue]{}[/blue]!'.format(user[idx][2]))
             interface.menu(commands, user[idx][4])
 
-            choose = input(">>> ")
+            choose = stripping(input(">>> "))
             if find_index_array(choose, commands) >= 0:
                 os.system("cls")
                 if user[idx][4] == "admin":             # Menu yang dapat dijalankan oleh admin
@@ -81,7 +81,7 @@ while True:                             # Looping selagi belum login
                     elif choose == "exit":
                         exit(header, user, game, history, kepemilikan)
                     else:
-                        print("Maaf, anda harus menjadi user untuk melakukan hal tersebut.")
+                        print("\n[red]Maaf, anda harus menjadi user untuk melakukan hal tersebut.")
                 elif user[idx][4] == "user":            # Menu yang dapat dijalankan oleh user
                     if choose == "login":
                         print("\nAnda sudah login dengan akun [blue]{}[/blue]".format(user[idx][1]))
@@ -110,12 +110,12 @@ while True:                             # Looping selagi belum login
                     elif choose == "exit":
                         exit(header, user, game, history, kepemilikan)
                     else:
-                        print("\nMaaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
+                        print("\n[red]Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
             else:
-                print('Tidak ada menu "{}"'.format(choose))
+                print('[red]Tidak ada menu "{}"'.format(choose))
             input("\nPress enter to continue..")
     elif choose == "help":
         help_guest()
     else:
-        print('\nMaaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login" dan "help"')
+        print('\n[red]Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login" dan "help"')
     input("\nPress enter to continue..")

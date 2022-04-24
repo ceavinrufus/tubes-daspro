@@ -1,6 +1,7 @@
 import os
 from functions.arraytools import *
 from interface import saving_animation
+from rich import print
 
 
 def save_file(data, filename, savedir):
@@ -46,8 +47,14 @@ def save(header, user, game, riwayat, kepemilikan):
     # savedir : string
 
     # ALGORITMA
-    savedir = input("Masukkan nama folder penyimpanan: ")
+    savedir = input("\nMasukkan nama folder penyimpanan: ")
 
+    while panjang(savedir) <= 0:
+        os.system("cls")
+        print("\n[red]Nama file tidak boleh kosong!")
+        savedir = input("\nMasukkan nama folder penyimpanan: ")
+
+    print()
     save_file([header[0]] + user, "user.csv", savedir)
     save_file([header[1]] + game, "game.csv", savedir)
     save_file([header[2]] + riwayat, "riwayat.csv", savedir)
