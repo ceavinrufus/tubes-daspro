@@ -182,7 +182,7 @@ def filtering(filterby, column, arr):
         return arr
     else:
         for i in range(panjang(arr)):
-            if filterby == arr[i][column]:   # Jika elemen ditemukan, array terkait akan ditambahkan ke dalam variabel found
+            if filterby.upper() == arr[i][column].upper():   # Jika elemen ditemukan, array terkait akan ditambahkan ke dalam variabel found
                 found += [arr[i]]
 
     return found

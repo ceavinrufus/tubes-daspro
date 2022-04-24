@@ -19,7 +19,7 @@ def list_game_toko(game):
         print('4. "tahun-" untuk sorting menurun berdasarkan tahun')
         print('5. "" untuk sorting menaik berdasarkan ID game')
 
-        skema = stripping(input("\nSkema sorting: "))
+        skema = stripping(input("\nSkema sorting: ").lower())
 
         # Sorting sesuai skema sorting yang diinput
         if skema == "harga+":

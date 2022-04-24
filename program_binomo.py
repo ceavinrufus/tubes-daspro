@@ -42,7 +42,7 @@ while True:                             # Looping selagi belum login
     interface.gambar_BNMO()
 
     interface.menu(commands, "guest")
-    choose = stripping(input(">>> "))
+    choose = stripping(input(">>> ").lower())
 
     os.system("cls")
     if choose == "login":
@@ -53,7 +53,7 @@ while True:                             # Looping selagi belum login
             print('\nHalo [blue]{}[/blue]!'.format(user[idx][2]))
             interface.menu(commands, user[idx][4])
 
-            choose = stripping(input(">>> "))
+            choose = stripping(input(">>> ").lower())
             if find_index_array(choose, commands) >= 0:
                 os.system("cls")
                 if user[idx][4] == "admin":             # Menu yang dapat dijalankan oleh admin
