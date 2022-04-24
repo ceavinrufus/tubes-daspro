@@ -45,9 +45,9 @@ while True:                             # Looping selagi belum login
 
     os.system("cls")
     if choose == "login":
-        idx = login(user)     # Indeks user pada array. Jika tidak berhasil login, indeks user -999
+        idx, logged_on = login(user)     # Indeks user pada array. Jika tidak berhasil login, indeks user -999
 
-        while idx >= 0:                 # Looping selagi masih logged in
+        while logged_on:                 # Looping selagi masih logged in
             os.system("cls")
             print('\nHalo [blue]{}[/blue]!'.format(user[idx][2]))
             interface.menu(commands, user[idx][4])
@@ -73,7 +73,7 @@ while True:                             # Looping selagi belum login
                     elif choose == "search_game_at_store":
                         search_game_at_store(game)
                     elif choose == "help":
-                        help_admin()
+                        help("admin")
                     elif choose == "save":
                         save(header, user, game, history, kepemilikan)
                     elif choose == "logout":
@@ -102,7 +102,7 @@ while True:                             # Looping selagi belum login
                     elif choose == "search_game_at_store":
                         search_game_at_store(game)
                     elif choose == "help":
-                        help_user()
+                        help("user")
                     elif choose == "save":
                         save(header, user, game, history, kepemilikan)
                     elif choose == "logout":
@@ -115,7 +115,7 @@ while True:                             # Looping selagi belum login
                 print('[red]Tidak ada menu "{}"'.format(choose))
             input("\nPress enter to continue..")
     elif choose == "help":
-        help_guest()
+        help()
     else:
         print('\n[red]Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login" dan "help"')
     input("\nPress enter to continue..")

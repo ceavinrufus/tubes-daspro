@@ -15,14 +15,14 @@ def login(user):
     username = stripping(input("\nMasukan username: "))
     if not uname_valid(username):
         print("[red]Username hanya dapat mengandung alfabet (A-Z, a-z), underscore (_), strip (-), dan angka (0-9)!")
-        return -999
+        return -999, False
 
     password = stripping(input("Masukan password: "))
 
     idx = find_index_matriks(username, user, 1)      # Indeks username yang ditemukan pada array. Jika tidak ditemukan, indeksnya -999
 
     if idx >= 0 and cipher(user[idx][3], encrypt=False) == password:                    # Mengecek apakah password user benar
-        return idx
+        return idx, True
     else:
         print("[red]Password atau username salah atau tidak ditemukan.")
-        return -999
+        return -999, False
