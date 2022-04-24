@@ -278,3 +278,21 @@ def is_numeric(word):
             if is_subset(word, numeric):
                 return True
     return False
+
+
+def search_user_game(kepemilikan, game, userindex):
+    # Fungsi yang mereturn data game yang dimiliki user
+
+    # KAMUS LOKAL
+    # usergame, game_found : array of array
+    # temp : array of string
+
+    # ALGORITMA
+    usergame = filtering(str(userindex + 1), 1, kepemilikan)    # Mencari daftar game yang dimiliki user pada array kepemilikan
+
+    game_found = []
+    for gameid in usergame:                                     # Array yang akan berisi data game yang dimiliki user
+        temp = filtering(gameid[0], 0, game)[0]                 # Pencarian data game berdasarkan ID game
+        game_found += [popped(temp, -1)]                        # Menambahkan array data game (tanpa data stok)
+
+    return game_found

@@ -1,7 +1,6 @@
 import os
 from functions.arraytools import *
 from interface import displaytable
-from procedures.list_game import search_user_game
 from rich import print
 
 
@@ -10,8 +9,8 @@ def search_my_game(kepemilikan, game, userindex):
     # F.S. Menampilkan tabel hasil filtering search pada game yang dimiliki user
 
     # KAMUS LOKAL
-    # result : array of array
-    # search, header : array
+    # result : array of array string
+    # search, header : array of string
     # title : string
 
     # ALGORITMA
@@ -34,8 +33,8 @@ def search_my_game(kepemilikan, game, userindex):
             return
 
         os.system("cls")
-        displaytable(header, result, title=title)       # Menampilkan tabel
-    else:
+        displaytable(header, result, title)       # Menampilkan tabel
+    else:   # panjang(game) <= 0
         print("\n[red]Maaf, kamu belum membeli game. Ketik [bold]buy_game[/bold] untuk beli!")
 
     return

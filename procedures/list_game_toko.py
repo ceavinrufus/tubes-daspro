@@ -7,7 +7,9 @@ def list_game_toko(game):
     # Menuliskan daftar game di toko dengan sorting tahun secara menurun atau menaik sesuai input
 
     # KAMUS LOKAL
-    # skema, sortby : string
+    # skema, sortby, title : string
+    # result : array of array
+    # header : array
 
     # ALGORITMA
     if panjang(game) > 0:
@@ -44,7 +46,7 @@ def list_game_toko(game):
         header = ["GAME ID", "NAMA", "KATEGORI", "TAHUN RILIS", "HARGA", "STOK"]
 
         displaytable(header, result, title)
-    else:
+    else:   # panjang(game) <= 0
         print("\n[red]Tidak ada game pada toko.")
 
     return

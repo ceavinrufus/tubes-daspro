@@ -25,7 +25,7 @@ def riwayat(userindex, history):
         header = ["ID", "NAMA GAME", "HARGA", "TAHUN BELI"]
 
         displaytable(header, found, title)
-    else:
+    else:   # panjang(riwayat) <= 0
         print("\n[red]Maaf, kamu tidak ada riwayat pembelian game. Ketik perintah [bold]beli_game[/bold] untuk membeli.")
 
     return

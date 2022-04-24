@@ -35,8 +35,8 @@ def search_game_at_store(game):
             return
 
         os.system("cls")
-        displaytable(header, result, title=title)           # Menampilkan tabel
-    else:
+        displaytable(header, result, title)           # Menampilkan tabel
+    else:   # panjang(game) <= 0
         print("\n[red]Tidak ada game pada toko.")
 
     return
