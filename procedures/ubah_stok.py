@@ -1,5 +1,4 @@
 from functions.arraytools import *
-from functions.formulas import absolute as abso
 from rich import print
 
 
@@ -32,7 +31,7 @@ def ubah_stok(game):
                 print("Stok sekarang: {}".format(stok))
             else:  # stok < 0
                 print("\n[red]Stok game {} gagal dikurangi.".format(game[idx][1]))
-                print("Stok sekarang: {} (< {})".format(game[idx][5], abso(jumlah)))
+                print("Stok sekarang: {} (< {})".format(game[idx][5], abs(jumlah)))
         else:  # jumlah >= 0
             game[idx][5] = stok                             # Mengubah stok pada array
             print("\n[green]Stok game {} berhasil ditambahkan.".format(game[idx][1]))

@@ -34,15 +34,3 @@ def inverse_lcg(m, fx, a=3, c=5):
     x = (a_inverse * (fx - c)) % m
 
     return x
-
-
-def absolute(x):
-    # Fungsi untuk mengembalikan nilai absolut dari x
-
-    # KAMUS LOKAL
-
-    # ALGORITMA
-    if x >= 0:
-        return x
-    else:
-        return -x

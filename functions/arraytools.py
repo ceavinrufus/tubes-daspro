@@ -43,7 +43,7 @@ def splitting(word, delimiter=";"):
             temp = ""       # Mengosongkan variabel sementara
         else:
             temp += char    # Menambahkan huruf ke dalam variabel sementara
-    if temp:
+    if panjang(temp) > 0:
         data += [temp]      # Menambahkan sisa word ke dalam list data dalam bentuk integer
 
     return data
@@ -53,7 +53,7 @@ def joining(arr, delimiter=";"):
     # Menggabungkan anggota dalam list menjadi sebuah string dengan delimiter tertentu
 
     # KAMUS LOKAL
-    # string : str
+    # word : str
 
     # Menambahkan anggota array dan delimiter secara bergantian ke dalam word
     word = str(arr[0])
@@ -109,8 +109,6 @@ def is_subset(arr1, arr2):
     # KAMUS LOKAL
 
     # ALGORITMA
-
-    # Mengecek apakah setiap karakter pada username valid (terdapat pada list allowed)
     for i in range(panjang(arr1)):
         if find_index_array(arr1[i], arr2) < 0:     # Jika arr1[i] tidak ada pada arr2, fungsi akan mereturn -999
             return False
@@ -167,9 +165,7 @@ def stripping(word, toRemove=" "):
     # KAMUS LOKAL
 
     # ALGORITMA
-    new_str = left_strip(right_strip(word, toRemove), toRemove)
-
-    return new_str
+    return left_strip(right_strip(word, toRemove), toRemove)
 
 
 def filtering(filterby, column, arr):
@@ -202,7 +198,7 @@ def popped(arr, pop_index):
     new_arr = []
     for i in range(panjang(arr)):
         if pop_index < 0:                       # Jika menggunakan indexing integer negatif
-            if i == panjang(arr)+pop_index:     # Pada saat pencacah sama dengan index, loop diskip
+            if i == panjang(arr) + pop_index:     # Pada saat pencacah sama dengan index, loop diskip
                 continue
         else:  # pop_index >= 0
             if i == pop_index:                  # Pada saat pencacah sama dengan index, loop diskip
@@ -215,7 +211,7 @@ def popped(arr, pop_index):
 def selection_sorted(matrix, by, ascending=True):
     # Menyusun array berdasarkan nilai pada kolom tertentu dengan teknik selection sort
 
-    # KAMUS LOKA
+    # KAMUS LOKAL
     # iMin, iMax : integer
 
     # ALGORITMA
@@ -255,14 +251,25 @@ def extract_integer(word):
 
 
 def uname_valid(username):
+    # Mereturn True jika username hanya berisi karakter yang telah ditentukan
+
+    # KAMUS LOKAL
+    # allowed_uname : array of character
+
+    # ALGORITMA
     allowed_uname = alphanumeric + ['_', '-']
 
-    if is_subset(username, allowed_uname):          # Jika username masih belum valid, ditampilkan pesan error
+    if is_subset(username, allowed_uname):
         return True
     return False
 
 
 def is_numeric(word):
+    # Mereturn True jika word hanya berisi numerik
+
+    # KAMUS LOKAL
+
+    # ALGORITMA
     if panjang(word) != 0:
         if word[0] == "-":
             if is_subset(popped(word, 0), numeric):
